@@ -6,35 +6,35 @@ const roomTabs = [
     area: "20 m²",
     image: "/images/discover-rooms/l1.webp",
     description:
-      "A cozy, social hub with plush seating and entertainment. Ideal for relaxing, gatherings, and family time."
+      "A spacious and elegant living area designed for comfort and style. Perfect for relaxing moments and welcoming guests with a modern touch."
   },
   {
     name: "Dinning Room",
     area: "15 m²",
     image: "/images/discover-rooms/l2.webp",
     description:
-      "A modern space for cooking and creativity. Equipped with appliances and a central island for easy meal prep."
+      "A well-planned dining space that brings families together. Designed for comfort, warmth, and memorable dining experiences."
   },
   {
     name: "Kitchen",
     area: "15 m²",
     image: "/images/discover-rooms/l3.webp",
     description:
-      "A warm, inviting area to share meals and conversations. Positioned between the kitchen and living room."
+      "A modern kitchen with smart layout and quality finishes. Built for convenience, functionality, and everyday ease."
   },
   {
     name: "Master Bedroom",
     area: "16 m²",
     image: "/images/discover-rooms/l4.webp",
     description:
-      "The bedroom is your personal sanctuary-a calming space designed for deep rest and peaceful beginnings."
+      "A peaceful and private retreat with ample space and natural light. Designed to provide comfort, relaxation, and luxury living."
   },
   {
     name: "Bathroom",
     area: "6 m²",
     image: "/images/discover-rooms/l5.webp",
     description:
-      "A compact wellness zone with spa-like touches. Features sleek fixtures and a relaxing ambiance."
+      "Stylish and well-equipped bathrooms with high-quality fittings. Designed for hygiene, comfort, and a refreshing experience."
   }
 ];
 
@@ -77,6 +77,51 @@ const scheduleTimes = [
   "18:00",
   "19:00",
   "20:00"
+];
+
+const nearbyHighlights = [
+  {
+    title: "Shopping & Entertainment",
+    accent: "Retail access",
+    items: [
+      ["LuLu Hypermarket", "0.6 km"],
+      ["Reliance Digital", "0.4 km"]
+    ]
+  },
+  {
+    title: "Educational Institutions",
+    accent: "Academic convenience",
+    items: [["Amrita School of Business", "2.9 km"]]
+  },
+  {
+    title: "Healthcare",
+    accent: "Healthcare access",
+    items: [["Amrita Institute of Medical Sciences", "Nearby"]]
+  },
+  {
+    title: "Connectivity",
+    accent: "Well-linked location",
+    items: [
+      ["Edappally Junction", "Easy access"],
+      ["NH 66 & NH 47", "Direct connectivity"]
+    ]
+  },
+  {
+    title: "Transport",
+    accent: "Easy daily commute",
+    items: [
+      ["Bus Stops", "100 m"],
+      ["Railway Station", "~4 km"]
+    ]
+  },
+  {
+    title: "City Access",
+    accent: "Strong urban reach",
+    items: [
+      ["Kochi City Centre", "Well connected"],
+      ["Metro & Road Connectivity", "Excellent"]
+    ]
+  }
 ];
 
 export default function HomePage() {
@@ -201,7 +246,7 @@ export default function HomePage() {
 
               <div className="row g-4 align-items-center justify-content-between">
                 <div className="col-md-5">
-                  <h1 className="mb-0">Elegant and Comfort in a Modern Space</h1>
+                  <h1 className="mb-0">Live the premium life you deserve.</h1>
                 </div>
 
                 <div className="col-lg-4">
@@ -265,7 +310,7 @@ export default function HomePage() {
                     Home Overview
                   </div>
                   <h2 className="wow fadeInUp" data-wow-delay=".4s">
-                    Luxury living where comfort meets timeless style, effortlesly
+                    A Perfect Balance of Comfort, Design, and Everyday Convenience.
                   </h2>
                   <p className="wow fadeInUp" data-wow-delay=".6s">
                     Non anim in pariatur in ex excepteur commodo do officia amet incididunt ullamco nostrud aliquip
@@ -281,17 +326,19 @@ export default function HomePage() {
               <div className="col-lg-6">
                 <div className="row g-4">
                   {[
-                    ["1.png", "Smart Home System"],
-                    ["2.png", "Solar Energy Panels"],
-                    ["3.png", "Central Air Conditioning"],
-                    ["4.png", "Home Security System"]
-                  ].map(([image, title]) => (
+                    ["1.png", "Terrace Garden & Party Area", "Enjoy stunning views and host memorable moments in a premium rooftop setting."],
+                    ["2.png", "Fully Equipped Fitness Centre", "Stay active and healthy with a modern gym featuring essential equipment for your daily workouts."],
+                    ["3.png", "Children’s Play Area", "A safe and engaging space where children can play, explore, and enjoy their time freely."],
+                    ["4.png", "24/7 Power Backup", "Reliable power backup system ensuring uninterrupted comfort at all times."],
+                    ["4.png", "Rainwater Harvesting System", "Eco-friendly water management system designed to support sustainable living."],
+                    ["4.png", "Multipurpose Hall", "A flexible space ideal for events, celebrations, and community gatherings."]
+                  ].map(([image, title, description]) => (
                     <div key={title} className="col-md-6">
                       <div className="h-100 rounded-1">
-                        <img src={`/images/icons-color/${image}`} className="w-70px mb-4 wow scaleIn" alt="" />
+                        <img src={`/assets/images/icons-color/${image}`} className="w-70px mb-4 wow scaleIn" alt="" />
                         <div className="relative wow fadeInUp">
                           <h4>{title}</h4>
-                          <p className="mb-0">Velit irure occaecat do consectetur dolore officia magna ut anim ut.</p>
+                          <p className="mb-0">{description}</p>
                         </div>
                       </div>
                     </div>
@@ -494,27 +541,128 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="row g-4">
-              {[
-                ["Airport", "18 miles", "/images/facilities-nearby/1.webp"],
-                ["University", "10 miles", "/images/facilities-nearby/3.webp"],
-                ["Shopping Mall", "12 miles", "/images/facilities-nearby/4.webp"]
-              ].map(([label, distance, image]) => (
-                <div key={label} className="col-lg-4 col-md-6">
-                  <div className="overflow-hidden relative rounded-1 text-light text-center wow zoomIn" data-wow-delay=".0s">
-                    <div className="wow scaleIn overflow-hidden">
-                      <img src={image} className="w-100" alt={label} />
-                    </div>
-                    <div className="abs z-2 bottom-0 p-30 w-100 text-center hover-op-0">
-                      <div className="d-flex justify-content-between align-items-center">
-                        <h3 className="mb-0">{label}</h3>
-                        <div>{distance}</div>
+            <div className="row g-4 align-items-stretch">
+              <div className="col-xl-4">
+                <div
+                  className="h-100 rounded-1 text-light wow fadeInUp"
+                  data-wow-delay=".0s"
+                  style={{
+                    padding: "clamp(1.5rem, 3vw, 2.5rem)",
+                    background:
+                      "linear-gradient(145deg, rgba(18, 34, 61, 0.96) 0%, rgba(11, 77, 90, 0.92) 55%, rgba(20, 131, 110, 0.88) 100%)"
+                  }}
+                >
+                  <div
+                    className="mb-3 d-inline-flex align-items-center justify-content-center text-dark fw-700 rounded-pill px-3 py-2"
+                    style={{ backgroundColor: "rgba(255,255,255,0.88)", fontSize: "14px", letterSpacing: ".08em" }}
+                  >
+                    PRIME LOCATION
+                  </div>
+                  <h3 className="mb-3 text-white">Everything essential is within quick reach.</h3>
+                  <p className="mb-4 text-white-50">
+                    From shopping and healthcare to education and transport, this address keeps daily life connected,
+                    efficient, and comfortable.
+                  </p>
+                  <div className="row g-3">
+                    {[
+                      ["Bus Stops", "100 m"],
+                      ["Railway Station", "~4 km"],
+                      ["Amrita School of Business", "2.9 km"],
+                      ["LuLu Hypermarket", "0.6 km"]
+                    ].map(([label, value]) => (
+                      <div key={label} className="col-sm-6">
+                        <div
+                          className="rounded-1 p-3 h-100"
+                          style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+                        >
+                          <div className="fs-12 text-uppercase text-white-50 mb-1" style={{ overflowWrap: "anywhere" }}>
+                            {label}
+                          </div>
+                          <div className="fw-600 text-white">{value}</div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="gradient-edge-bottom abs w-100 h-40 bottom-0" />
+                    ))}
                   </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="col-xl-8">
+                <div className="row g-4">
+                  {nearbyHighlights.map(({ title, accent, items }, index) => (
+                    <div key={title} className="col-lg-6">
+                      <div
+                        className="h-100 rounded-1 wow fadeInUp"
+                        data-wow-delay={`${index * 0.1}s`}
+                        style={{
+                          padding: "clamp(1.15rem, 2.6vw, 1.5rem)",
+                          background: "linear-gradient(180deg, rgba(20,20,20,0.98) 0%, rgba(12,12,12,0.98) 100%)",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                          boxShadow: "0 18px 45px rgba(0,0,0,0.18)"
+                        }}
+                      >
+                        <div className="mb-3 pb-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                          <div
+                            className="fs-12 text-uppercase mb-2"
+                            style={{ color: "#b8c2cc", letterSpacing: ".08em", overflowWrap: "anywhere" }}
+                          >
+                            {accent}
+                          </div>
+                          <div className="d-flex align-items-center gap-3">
+                            <div
+                              className="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                              style={{
+                                width: "44px",
+                                height: "44px",
+                                background: "linear-gradient(135deg, rgba(201, 167, 92, 0.24), rgba(255,255,255,0.08))",
+                                border: "1px solid rgba(201, 167, 92, 0.28)",
+                                color: "#f0d9a1",
+                                fontWeight: 700,
+                                fontSize: "14px"
+                              }}
+                            >
+                              {String(index + 1).padStart(2, "0")}
+                            </div>
+                            <h4 className="mb-0 text-white" style={{ overflowWrap: "anywhere" }}>
+                              {title}
+                            </h4>
+                          </div>
+                        </div>
+
+                        <div className="d-grid gap-2">
+                          {items.map(([label, value]) => (
+                            <div
+                              key={label}
+                              className="rounded-1 px-3 py-3"
+                              style={{ backgroundColor: "rgba(255,255,255,0.04)" }}
+                            >
+                              <div className="d-flex flex-column align-items-start gap-3">
+                                <div
+                                  className="text-light"
+                                  style={{ minWidth: 0, width: "100%", overflowWrap: "anywhere", lineHeight: 1.5 }}
+                                >
+                                  {label}
+                                </div>
+                                <div
+                                  className="rounded-pill px-3 py-1 fw-600"
+                                  style={{
+                                    backgroundColor: "rgba(201, 167, 92, 0.16)",
+                                    color: "#f0d9a1",
+                                    fontSize: "14px",
+                                    whiteSpace: "nowrap",
+                                    flexShrink: 0
+                                  }}
+                                >
+                                  {value}
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -1,0 +1,168 @@
+/* ─── Global Section Spacing ─── */
+section {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 767px) {
+  section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  h1, .h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  h2, .h2 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+  h3, .h3 { font-size: clamp(1.1rem, 4vw, 1.4rem); }
+  p        { font-size: clamp(0.875rem, 3.5vw, 1rem); }
+}
+
+/* ─── Navbar ─── */
+@media (max-width: 991px) {
+  .navbar-brand img {
+    max-height: 48px;
+  }
+  .navbar-collapse {
+    background: rgba(28, 20, 40, 0.97);
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+}
+
+/* ─── Room / Discover Tabs ─── */
+@media (max-width: 767px) {
+  #section-rooms .nav-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: none;
+    gap: 6px;
+    padding-bottom: 4px;
+  }
+  #section-rooms .nav-tabs .nav-link {
+    white-space: nowrap;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+/* ─── Gallery Images ─── */
+.gallery-item img,
+.gallery-item .img-fluid {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+@media (max-width: 575px) {
+  .gallery-item img,
+  .gallery-item .img-fluid {
+    height: 180px;
+  }
+}
+
+/* ─── Floorplan Section ─── */
+@media (max-width: 767px) {
+  #section-floorplan .nav-tabs {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  #section-floorplan .nav-tabs .nav-link {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+  #section-floorplan img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ─── Nearby / Highlights Cards ─── */
+.nearby-card {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.nearby-card .img-wrap {
+  height: 200px;
+  overflow: hidden;
+}
+.nearby-card .img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.nearby-card:hover .img-wrap img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 575px) {
+  .nearby-card .img-wrap {
+    height: 160px;
+  }
+}
+
+/* ─── Contact / Callback Form ─── */
+@media (max-width: 767px) {
+  #section-contact .form-control,
+  #section-contact select.form-control {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+  #section-contact .btn-main {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ─── Footer ─── */
+@media (max-width: 991px) {
+  footer .widget {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 575px) {
+  footer .social-icons a {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+    margin-right: 6px;
+  }
+  footer .widget-title {
+    font-size: 1rem;
+  }
+}
+
+/* ─── Buttons ─── */
+.btn-main {
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(176, 52, 148, 0.45);
+}
+
+/* ─── Overview Feature Cards ─── */
+@media (max-width: 575px) {
+  .feature-box {
+    padding: 16px 12px;
+  }
+  .feature-box i {
+    font-size: 1.6rem;
+  }
+}
+
+/* ─── General Image Responsiveness ─── */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ─── Utility ─── */
+@media (max-width: 575px) {
+  .sm-hide { display: none !important; }
+  .text-sm-center { text-align: center !important; }
+}

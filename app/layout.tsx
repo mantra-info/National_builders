@@ -17,7 +17,8 @@ const stylesheetHrefs = [
   "/assets/datepicker.css",
   "/assets/colors/scheme-01.css",
   "/assets/fonts/et-line-font/style.css",
-  "/assets/fonts/icofont/icofont.min.css"
+  "/assets/fonts/icofont/icofont.min.css",
+  "/assets/responsive.css"
 ];
 
 export default function RootLayout({

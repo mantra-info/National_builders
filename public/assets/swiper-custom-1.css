@@ -2,15 +2,6 @@
     opacity: 0;
 }
 
-/*
-.swiper-slide.swiper-slide-active .swiper-inner,
-.swiper-slide.swiper-slide-duplicate-active .swiper-inner{
-  animation-name: fadeIn;
-  animation-duration: 1.5s;
-  animation-delay: 0s;
-}
-*/
-
 .swiper-slide.swiper-slide-active .anim-order-1,
 .swiper-slide.swiper-slide-duplicate-active .anim-order-1{
     animation-name: fadeInUp;
@@ -24,66 +15,84 @@
     animation-delay: .8s;
 }
 
-/* ─── Hero Section Responsive ─── */
+/* ─── Hero Section — fully responsive across all breakpoints ─── */
 
-/* Desktop: full viewport */
+/* Base: fill viewport height on desktop */
+#section-hero,
+#section-hero .swiper,
+#section-hero .swiper-wrapper,
+#section-hero .swiper-slide,
+#section-hero .swiper-inner,
 #section-hero .vertical-center {
-  min-height: 100vh;
+  min-height: 100svh; /* svh = safe-area aware on mobile browsers */
 }
 
-/* Tablet (≤991px): 75vh */
-@media (max-width: 991px) {
-  #section-hero .vertical-center {
-    min-height: 75vh;
-  }
+#section-hero .swiper-inner {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  width: 100%;
+}
+
+/* Tablet landscape / small laptop (769px – 1199px) */
+@media (max-width: 1199px) {
+  #section-hero,
   #section-hero .swiper,
   #section-hero .swiper-wrapper,
-  #section-hero .swiper-slide {
-    min-height: 75vh;
-  }
-  #section-hero .swiper-inner {
-    background-position: center center !important;
-    background-size: cover !important;
+  #section-hero .swiper-slide,
+  #section-hero .swiper-inner,
+  #section-hero .vertical-center {
+    min-height: 85svh;
   }
 }
 
-/* Mobile (≤575px): 60vh, focus image on subject */
-@media (max-width: 575px) {
-  #section-hero .vertical-center {
-    min-height: 60vh;
-  }
+/* Tablet portrait (577px – 768px) */
+@media (max-width: 768px) {
+  #section-hero,
   #section-hero .swiper,
   #section-hero .swiper-wrapper,
-  #section-hero .swiper-slide {
-    min-height: 60vh;
+  #section-hero .swiper-slide,
+  #section-hero .swiper-inner,
+  #section-hero .vertical-center {
+    min-height: 70svh;
   }
   #section-hero .swiper-inner {
-    background-position: 60% center !important;
-    background-size: cover !important;
+    background-position: center top !important;
   }
+}
 
-  /* Buttons stack vertically on small screens */
+/* Mobile (≤576px) */
+@media (max-width: 576px) {
+  #section-hero,
+  #section-hero .swiper,
+  #section-hero .swiper-wrapper,
+  #section-hero .swiper-slide,
+  #section-hero .swiper-inner,
+  #section-hero .vertical-center {
+    min-height: 60svh;
+  }
+  #section-hero .swiper-inner {
+    background-position: 65% center !important;
+  }
   #section-hero .btn-main {
     display: block;
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
   }
-
-  /* Hide bottom feature tags on very small screens */
   #section-hero .sm-hide {
     display: none !important;
   }
 }
 
-/* Small mobile (≤380px): even more compact */
+/* Very small mobile (≤380px) */
 @media (max-width: 380px) {
-  #section-hero .vertical-center {
-    min-height: 55vh;
-  }
+  #section-hero,
   #section-hero .swiper,
   #section-hero .swiper-wrapper,
-  #section-hero .swiper-slide {
-    min-height: 55vh;
+  #section-hero .swiper-slide,
+  #section-hero .swiper-inner,
+  #section-hero .vertical-center {
+    min-height: 55svh;
   }
 }

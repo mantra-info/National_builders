@@ -1,8 +1,17 @@
+/* ─── De-loader: disable full-page preloader overlay ─────────────────────────
+   #de-loader is position:fixed z-index:20000 covering the entire page.
+   It only hides when jQuery's window.load fires inside designesia.js — but
+   that script loads afterInteractive, so the native load event is already
+   gone. Result: the page stays blank until a timeout rescues it.
+   Hiding it here via CSS is instant and reliable.
+──────────────────────────────────────────────────────────────────────────── */
+#de-loader {
+  display: none !important;
+}
+
 /* ─── WOW.js override ────────────────────────────────────────────────────────
-   style.css sets .wow { visibility: hidden } and relies on JS scroll events
-   to reveal content. This causes sections/footer to stay hidden if JS is
-   slow or misses elements. Override it so content is always visible;
-   scroll animations become optional enhancement only.
+   style.css sets .wow { visibility: hidden } — override so content is always
+   visible; scroll animations become optional enhancement only.
 ──────────────────────────────────────────────────────────────────────────── */
 .wow {
   visibility: visible !important;

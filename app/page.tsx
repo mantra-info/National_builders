@@ -1,57 +1,32 @@
 import Script from "next/script";
 
-const roomTabs = [
-  {
-    name: "Living Room",
-    area: "20 m²",
-    image: "/images/discover-rooms/l1.webp",
-    description:
-      "A spacious and elegant living area designed for comfort and style. Perfect for relaxing moments and welcoming guests with a modern touch."
-  },
-  {
-    name: "Dinning Room",
-    area: "15 m²",
-    image: "/images/discover-rooms/l2.webp",
-    description:
-      "A well-planned dining space that brings families together. Designed for comfort, warmth, and memorable dining experiences."
-  },
-  {
-    name: "Kitchen",
-    area: "15 m²",
-    image: "/images/discover-rooms/l3.webp",
-    description:
-      "A modern kitchen with smart layout and quality finishes. Built for convenience, functionality, and everyday ease."
-  },
-  {
-    name: "Master Bedroom",
-    area: "16 m²",
-    image: "/images/discover-rooms/l4.webp",
-    description:
-      "A peaceful and private retreat with ample space and natural light. Designed to provide comfort, relaxation, and luxury living."
-  },
-  {
-    name: "Bathroom",
-    area: "6 m²",
-    image: "/images/discover-rooms/l5.webp",
-    description:
-      "Stylish and well-equipped bathrooms with high-quality fittings. Designed for hygiene, comfort, and a refreshing experience."
-  }
+const amenities = [
+  { icon: "fa-solid fa-person-running",     label: "Rooftop Jogging Track"  },
+  { icon: "fa-solid fa-person-swimming",    label: "Swimming Pool"           },
+  { icon: "fa-solid fa-dumbbell",           label: "Fitness Center"          },
+  { icon: "fa-solid fa-child-reaching",     label: "Kids Play Area"          },
+  { icon: "fa-solid fa-film",               label: "AC Recreational Hall"    },
+  { icon: "fa-solid fa-bolt",               label: "EV Charging Point"       },
+  { icon: "fa-solid fa-house-chimney-user", label: "Club House"              },
+  { icon: "fa-solid fa-bed",                label: "Guest Room"              },
+  { icon: "fa-solid fa-seedling",           label: "Garden Area"             }
 ];
 
 const galleryItems = [
-  ["interior", "/images/gallery/l1.webp"],
-  ["interior", "/images/gallery/l2.webp"],
-  ["interior", "/images/gallery/l3.webp"],
-  ["interior", "/images/gallery/l4.webp"],
-  ["interior", "/images/gallery/l5.webp"],
-  ["exterior", "/images/gallery/l6.webp"],
-  ["exterior", "/images/gallery/l7.webp"],
-  ["exterior", "/images/gallery/l8.webp"],
-  ["facilities", "/images/gallery/l9.webp"],
-  ["facilities", "/images/gallery/l10.webp"],
-  ["facilities", "/images/gallery/l11.webp"],
-  ["facilities", "/images/gallery/l12.webp"]
-] as const;
+  "/assets/images/gallery-nrp/g1.jpeg",
+  "/assets/images/gallery-nrp/g2.jpeg",
+  "/assets/images/gallery-nrp/g3.jpeg",
+  "/assets/images/gallery-nrp/g4.jpeg",
+  "/assets/images/gallery-nrp/g5.jpeg",
+  "/assets/images/gallery-nrp/g6.jpeg",
+  "/assets/images/gallery-nrp/g7.jpeg",
+  "/assets/images/gallery-nrp/g8.jpeg",
+  "/assets/images/gallery-nrp/g9.jpeg",
+  "/assets/images/gallery-nrp/g10.jpeg",
+  "/assets/images/gallery-nrp/g11.jpeg",
+  "/assets/images/gallery-nrp/g12.jpeg",
+  "/assets/images/gallery-nrp/g13.jpeg"
+];
 
 const floorplanRows = [
   ["Apartment Type", "3 & 4 BHK"],
@@ -141,8 +116,8 @@ export default function HomePage() {
                             </a>
                           </li>
                           <li>
-                            <a className="menu-item" href="#section-rooms">
-                              Rooms
+                            <a className="menu-item" href="#section-amenities">
+                              Amenities
                             </a>
                           </li>
                           <li>
@@ -283,55 +258,29 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="section-rooms" className="bg-dark section-dark text-light">
+        <section id="section-amenities" className="bg-dark section-dark text-light">
           <div className="container">
             <div className="row g-4 gx-5 justify-content-center">
               <div className="col-lg-6 text-center">
                 <div className="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">
-                  Room Details
+                  What We Offer
                 </div>
                 <h2 className="wow fadeInUp" data-wow-delay=".2s">
-                  Discover Rooms
+                  World-Class Amenities
                 </h2>
               </div>
             </div>
-            <div className="row g-4 gx-5 justify-content-center wow fadeInUp">
-              <div className="col-lg-12">
-                <div className="de-tab pill">
-                  <ul className="d-tab-nav mb-4">
-                    {roomTabs.map((room, index) => (
-                      <li key={room.name} className={index === 0 ? "active-tab" : undefined}>
-                        {room.name}
-                      </li>
-                    ))}
-                  </ul>
-                  <ul className="d-tab-content pt-3">
-                    {roomTabs.map((room) => (
-                      <li key={room.name}>
-                        <div className="row g-4 justify-content-between">
-                          <div className="col-lg-4">
-                            <div className="relative bg-dark-2 rounded-1 h-100">
-                              <h3 className="fs-32 mb-4 p-40">{room.name}</h3>
-                              <div className="abs p-sm-relative bottom-0 p-40 start-0 w-100">
-                                <p className="mb-0">{room.description}</p>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="col-lg-8">
-                            <div className="relative">
-                              <div className="bg-blur abs p-2 bottom-0 rounded-2 px-4 m-4 text-white">
-                                <h4 className="mb-0">{room.area}</h4>
-                              </div>
-                              <img src={room.image} className="w-100 rounded-1" alt={room.name} />
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+            <div className="row g-4 wow fadeInUp" data-wow-delay=".3s">
+              {amenities.map((a) => (
+                <div key={a.label} className="col-lg-4 col-md-6 col-12">
+                  <div className="p-4 rounded-2 h-100 d-flex align-items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    <div className="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0" style={{ width: 54, height: 54, background: "var(--primary-color)", fontSize: "1.4rem", color: "#fff" }}>
+                      <i className={a.icon} />
+                    </div>
+                    <h5 className="mb-0 fw-500">{a.label}</h5>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -341,51 +290,24 @@ export default function HomePage() {
             <div className="row g-4 gx-5 justify-content-center">
               <div className="col-lg-6 text-center">
                 <div className="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">
-                  Dicover Gallery
+                  Project Gallery
                 </div>
                 <h2 className="wow fadeInUp" data-wow-delay=".2s">
-                  Exterior &amp; Interior
+                  A Glimpse of Royal Living
                 </h2>
               </div>
             </div>
 
-            <div className="row">
-              <div className="col-md-12 text-center">
-                <ul id="filters" className="wow fadeInUp" data-wow-delay="0s">
-                  <li>
-                    <a href="#" data-filter="*" className="selected">
-                      View All
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-filter=".exterior">
-                      Exterior
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-filter=".interior">
-                      Interior
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-filter=".facilities">
-                      Facilities
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
             <div id="gallery" className="row g-3 wow fadeInUp" data-wow-delay=".3s">
-              {galleryItems.map(([type, image]) => (
-                <div key={image} className={`col-md-4 col-sm-6 col-12 item ${type}`}>
+              {galleryItems.map((image) => (
+                <div key={image} className="col-md-4 col-sm-6 col-12">
                   <a href={image} className="image-popup d-block hover">
                     <div className="relative overflow-hidden rounded-1">
                       <div className="absolute start-0 w-100 hover-op-1 p-5 abs-middle z-2 text-center text-white z-3">
                         View
                       </div>
                       <div className="absolute start-0 w-100 h-100 overlay-dark-7 hover-op-1 z-2" />
-                      <img src={image} className="w-100 hover-scale-1-2" alt="" />
+                      <img src={image} className="w-100 hover-scale-1-2" alt="National Royal Palace" style={{ height: "240px", objectFit: "cover" }} />
                     </div>
                   </a>
                 </div>
@@ -661,7 +583,7 @@ export default function HomePage() {
               <ul className="list-unstyled mb-0" style={{ lineHeight: "2.4" }}>
                 <li><a href="#" className="text-white opacity-75 text-decoration-none">Home</a></li>
                 <li><a href="#section-overview" className="text-white opacity-75 text-decoration-none">Overview</a></li>
-                <li><a href="#section-rooms" className="text-white opacity-75 text-decoration-none">Rooms</a></li>
+                <li><a href="#section-amenities" className="text-white opacity-75 text-decoration-none">Amenities</a></li>
                 <li><a href="#section-gallery" className="text-white opacity-75 text-decoration-none">Gallery</a></li>
                 <li><a href="#section-floorplan" className="text-white opacity-75 text-decoration-none">Floorplan</a></li>
                 <li><a href="#section-contact" className="text-white opacity-75 text-decoration-none">Contact</a></li>

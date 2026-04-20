@@ -1,13 +1,11 @@
-/* ─── WOW.js Visibility Fallback ─────────────────────────────────────────────
-   WOW.js starts every .wow element as visibility:hidden and only reveals it on
-   scroll. If JS is slow or misses an element, it stays hidden forever.
-   This animation reveals any .wow that WOW.js hasn't animated after 1.5 s.
+/* ─── WOW.js override ────────────────────────────────────────────────────────
+   style.css sets .wow { visibility: hidden } and relies on JS scroll events
+   to reveal content. This causes sections/footer to stay hidden if JS is
+   slow or misses elements. Override it so content is always visible;
+   scroll animations become optional enhancement only.
 ──────────────────────────────────────────────────────────────────────────── */
-@keyframes wow-reveal {
-  to { visibility: visible; opacity: 1; transform: none; }
-}
-.wow:not(.animated) {
-  animation: wow-reveal 0s 1.5s forwards;
+.wow {
+  visibility: visible !important;
 }
 
 /* ─── Global Section Spacing ─── */

@@ -1,65 +1,43 @@
-.anim-order-1, .anim-order-2{
-    opacity: 0;
+.anim-order-1, .anim-order-2 {
+  opacity: 0;
 }
 
 .swiper-slide.swiper-slide-active .anim-order-1,
-.swiper-slide.swiper-slide-duplicate-active .anim-order-1{
-    animation-name: fadeInUp;
-    animation-duration: .75s;
-    animation-delay: .5s;
+.swiper-slide.swiper-slide-duplicate-active .anim-order-1 {
+  animation-name: fadeInUp;
+  animation-duration: .75s;
+  animation-delay: .5s;
 }
 .swiper-slide.swiper-slide-active .anim-order-2,
-.swiper-slide.swiper-slide-duplicate-active .anim-order-2{
-    animation-name: fadeInUp;
-    animation-duration: .75s;
-    animation-delay: .8s;
+.swiper-slide.swiper-slide-duplicate-active .anim-order-2 {
+  animation-name: fadeInUp;
+  animation-duration: .75s;
+  animation-delay: .8s;
 }
 
-/* ─── Hero: aspect-ratio-driven, full image always visible ──────────────────
-   Images are 1895×785 (ratio ≈ 2.41:1). We let the image's own proportions
-   set the container height so nothing gets cropped.
-   background-size: contain shows the whole image; dark bg fills any gaps.
+/* ─── Hero image swiper — image drives its own height, no cropping ───────────
+   .hero-img-swiper uses <img> tags so the natural aspect ratio (1895×785)
+   sets the container height on every screen size. No background-size hacks.
 ─────────────────────────────────────────────────────────────────────────── */
-
-/* Section is position:relative — height comes from swiper-inner */
-#section-hero {
-  min-height: 0 !important;
-}
-
-/* Let swiper containers size naturally */
-#section-hero .vertical-center,
-#section-hero .swiper,
-#section-hero .swiper-wrapper,
-#section-hero .swiper-slide {
-  min-height: 0 !important;
+.hero-img-swiper,
+.hero-img-swiper .swiper-wrapper,
+.hero-img-swiper .swiper-slide {
   height: auto !important;
+  min-height: 0 !important;
 }
 
-/* The background div drives the height via aspect-ratio */
-#section-hero .swiper-inner {
-  aspect-ratio: 1895 / 785;
+.hero-img-swiper .swiper-slide img {
   width: 100%;
-  background-size: contain !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-color: var(--bg-dark-1, #1C1428) !important;
+  height: auto;
+  display: block;
 }
 
-/* On very tall/narrow screens (portrait mobile) the image would be tiny.
-   Set a sensible minimum so the hero never collapses below 220px. */
+/* Ensure CTA buttons are readable on small screens */
 @media (max-width: 576px) {
-  #section-hero .swiper-inner {
-    min-height: 220px;
-  }
-
   #section-hero .btn-main {
     display: block;
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
-  }
-
-  #section-hero .sm-hide {
-    display: none !important;
   }
 }

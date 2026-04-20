@@ -122,8 +122,33 @@ export default function HomePage() {
           </div>
         </header>
 
-        <section id="section-hero" className="text-light no-top no-bottom relative overflow-hidden z-1000">
-          <div className="abs w-100 z-2" style={{ bottom: "60px" }}>
+        <section id="section-hero" className="text-light no-top no-bottom z-1000" style={{ position: "relative", backgroundColor: "#1C1428" }}>
+          <div className="swiper">
+            <div className="swiper-wrapper">
+              {[
+                { file: "gbp22-opt.jpg",        priority: true  },
+                { file: "Royal-Palace_opt.jpg", priority: false }
+              ].map(({ file, priority }) => (
+                <div key={file} className="swiper-slide" style={{ position: "relative" }}>
+                  {/* Real img with explicit dimensions — browser reserves exact space,
+                      Swiper reads correct height before image loads, no cropping ever */}
+                  <img
+                    src={`/assets/images/${file}`}
+                    width={1895}
+                    height={785}
+                    alt="National Royal Palace"
+                    fetchPriority={priority ? "high" : undefined}
+                    loading={priority ? "eager" : "lazy"}
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                  />
+                  <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA buttons */}
+          <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, zIndex: 10 }}>
             <div className="container">
               <div className="row g-3 justify-content-center justify-content-lg-end">
                 <div className="col-12 col-sm-10 col-md-6 col-lg-4 text-center text-lg-start">
@@ -137,42 +162,14 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="vertical-center">
-            <div className="swiper">
-              <div className="swiper-wrapper">
-                {["gbp22-opt.jpg", "Royal-Palace_opt.jpg"].map((image) => (
-                  <div key={image} className="swiper-slide">
-                    <div
-                      className="swiper-inner"
-                      data-bgimage={`url(/assets/images/${image})`}
-                      style={{
-                        backgroundImage: `url(/assets/images/${image})`,
-                        backgroundSize: "contain",
-                        backgroundPosition: "center center",
-                        backgroundRepeat: "no-repeat",
-                        backgroundColor: "#1C1428"
-                      }}
-                    >
-                      <div className="sw-overlay op-4" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
-          <div className="abs w-100 bottom-0 z-2 pb-4 sm-hide">
+          {/* Feature tags */}
+          <div className="sm-hide" style={{ position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 10, paddingBottom: "1rem" }}>
             <div className="container">
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="d-flex justify-content-between">
-                    {["Spacious Rooms", "Private Garden", "Walk-in Closets", "Swimming Pool"].map((item) => (
-                      <div key={item}>
-                        <h6>{item}</h6>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div className="d-flex justify-content-between">
+                {["Spacious Rooms", "Private Garden", "Walk-in Closets", "Swimming Pool"].map((item) => (
+                  <div key={item}><h6>{item}</h6></div>
+                ))}
               </div>
             </div>
           </div>

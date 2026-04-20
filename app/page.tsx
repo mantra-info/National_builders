@@ -628,6 +628,15 @@ export default function HomePage() {
               loader.style.display = "none";
             }
           }, 800);
+
+          /* Re-init WOW so any elements missed on first pass get revealed */
+          window.setTimeout(function () {
+            try {
+              if (typeof WOW !== "undefined") {
+                new WOW({ mobile: true, live: false }).init();
+              }
+            } catch (e) {}
+          }, 600);
         }, 150);`}
       </Script>
     </>

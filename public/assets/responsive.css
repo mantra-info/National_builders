@@ -1,3 +1,15 @@
+/* ─── WOW.js Visibility Fallback ─────────────────────────────────────────────
+   WOW.js starts every .wow element as visibility:hidden and only reveals it on
+   scroll. If JS is slow or misses an element, it stays hidden forever.
+   This animation reveals any .wow that WOW.js hasn't animated after 1.5 s.
+──────────────────────────────────────────────────────────────────────────── */
+@keyframes wow-reveal {
+  to { visibility: visible; opacity: 1; transform: none; }
+}
+.wow:not(.animated) {
+  animation: wow-reveal 0s 1.5s forwards;
+}
+
 /* ─── Global Section Spacing ─── */
 section {
   padding-left: 15px;

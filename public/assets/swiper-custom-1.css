@@ -15,29 +15,39 @@
   animation-delay: .8s;
 }
 
-/* ─── Hero image swiper — image drives its own height, no cropping ───────────
-   .hero-img-swiper uses <img> tags so the natural aspect ratio (1895×785)
-   sets the container height on every screen size. No background-size hacks.
-─────────────────────────────────────────────────────────────────────────── */
-.hero-img-swiper,
-.hero-img-swiper .swiper-wrapper,
-.hero-img-swiper .swiper-slide {
+/* ─── Hero: full image visible at all sizes ──────────────────────────────── */
+
+/* Images are 1895×785 (ratio 2.41:1).
+   Set the swiper-inner height via aspect-ratio so it always matches
+   the image proportions exactly — no cropping, no letterbox gaps. */
+#section-hero .swiper-inner {
+  aspect-ratio: 1895 / 785;
+  width: 100%;
+  background-size: contain !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-color: #1C1428 !important;
+  min-height: 200px;
+}
+
+/* Let swiper containers follow that height */
+#section-hero .vertical-center,
+#section-hero .swiper,
+#section-hero .swiper-wrapper,
+#section-hero .swiper-slide {
   height: auto !important;
   min-height: 0 !important;
 }
 
-.hero-img-swiper .swiper-slide img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Ensure CTA buttons are readable on small screens */
+/* Mobile: stack CTA buttons */
 @media (max-width: 576px) {
   #section-hero .btn-main {
     display: block;
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
+  }
+  #section-hero .sm-hide {
+    display: none !important;
   }
 }

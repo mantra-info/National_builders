@@ -76,39 +76,6 @@ export default function HomePage() {
                             <a className="menu-item" href="#">
                               Home
                             </a>
-                            <ul className="mega">
-                              <li>
-                                <div className="container">
-                                  <div className="sb-menu p-4">
-                                    <div className="row g-3">
-                                      {[
-                                        ["Single Property 1", "/images/demo/homepage-1.webp", "/"],
-                                        ["Single Property 2", "/images/demo/homepage-2.webp", "#"],
-                                        ["Single Property 3", "/images/demo/homepage-6.webp", "#"],
-                                        ["New: Single Property 4", "/images/demo/homepage-7.webp", "#"],
-                                        ["Apartment 1", "/images/demo/homepage-3.webp", "#"],
-                                        ["Apartment 2", "/images/demo/homepage-4.webp", "#"],
-                                        ["Single Apartment", "/images/demo/homepage-5.webp", "#"],
-                                        ["Coming Soon", "/images/demo/coming-soon.webp", "#"]
-                                      ].map(([label, image, href]) => (
-                                        <div key={label} className="col-lg-3 col-md-4 col-sm-6 text-center">
-                                          <div className="relative hover text-center overflow-hidden soft-shadow">
-                                            <a className="p-0" href={href}>
-                                              <img
-                                                src={image}
-                                                className="w-100 relative hover-scale-1-1"
-                                                alt={label}
-                                              />
-                                            </a>
-                                          </div>
-                                          <h6 className="mt-3">{label}</h6>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
                           </li>
                           <li>
                             <a className="menu-item" href="#section-overview">
@@ -173,7 +140,7 @@ export default function HomePage() {
           <div className="vertical-center">
             <div className="swiper">
               <div className="swiper-wrapper">
-                {["gbp22.jpg", "Royal-Palace_Grid_Post_.jpg.jpeg"].map((image) => (
+                {["gbp22-opt.jpg", "Royal-Palace_opt.jpg"].map((image) => (
                   <div key={image} className="swiper-slide">
                     <div
                       className="swiper-inner"
@@ -307,7 +274,7 @@ export default function HomePage() {
                         View
                       </div>
                       <div className="absolute start-0 w-100 h-100 overlay-dark-7 hover-op-1 z-2" />
-                      <img src={image} className="w-100 hover-scale-1-2" alt="National Royal Palace" style={{ height: "240px", objectFit: "cover" }} />
+                      <img src={image} className="w-100 hover-scale-1-2" alt="National Royal Palace" loading="lazy" decoding="async" style={{ height: "240px", objectFit: "cover" }} />
                     </div>
                   </a>
                 </div>
@@ -370,6 +337,8 @@ export default function HomePage() {
                         className="w-100 wow fadeInUp"
                         data-wow-delay=".2s"
                         alt={label}
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="abs bottom-0 start-0 bg-blur px-4 py-2 m-3 rounded-1 text-white">
                         <h6 className="mb-0">{label}</h6>
@@ -393,7 +362,7 @@ export default function HomePage() {
                   <div className="bg-dark-2 py-4 rounded-1 text-center">
                     <h4>{title}</h4>
                     <div className="d-flex justify-content-center align-items-center">
-                      <img src={icon} className="w-40px me-3" alt="" />
+                      <img src={icon} className="w-40px me-3" alt="" loading="lazy" decoding="async" />
                       <div>{value}</div>
                     </div>
                   </div>
@@ -428,6 +397,8 @@ export default function HomePage() {
                     <img
                       src={image}
                       alt={label}
+                      loading="lazy"
+                      decoding="async"
                       style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                     />
                     <div style={{
@@ -464,7 +435,7 @@ export default function HomePage() {
             <div className="row g-4 justify-content-center">
               <div className="col-md-3">
                 <div className="text-center">
-                  <img src="/images/agents/1.webp" className="w-100 rounded-1" alt="" />
+                  <img src="/images/agents/1.webp" className="w-100 rounded-1" alt="National Builders" loading="lazy" decoding="async" />
 
                   <div className="mt-3">
                     <h4 className="mb-0">National Builders</h4>

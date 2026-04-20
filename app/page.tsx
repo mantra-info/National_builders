@@ -51,8 +51,6 @@ export default function HomePage() {
         </div>
         <div className="scrollbar-v show-on-scroll" />
 
-        <div id="de-loader" />
-
         <header className="transparent header-light header-float">
           <div className="container">
             <div className="row">
@@ -616,8 +614,6 @@ export default function HomePage() {
       <Script id="template-load-fix" strategy="afterInteractive">
         {`window.setTimeout(function () {
           try { window.dispatchEvent(new Event("load")); } catch(e) {}
-          var loader = document.getElementById("de-loader");
-          if (loader) loader.style.display = "none";
         }, 150);`}
       </Script>
       <Script id="aos-init" strategy="afterInteractive">{`

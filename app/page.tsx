@@ -298,7 +298,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div id="gallery" className="row g-3 wow fadeInUp" data-wow-delay=".3s">
+            <div id="gallery-grid" className="row g-3 wow fadeInUp" data-wow-delay=".3s">
               {galleryItems.map((image) => (
                 <div key={image} className="col-md-4 col-sm-6 col-12">
                   <a href={image} className="image-popup d-block hover">

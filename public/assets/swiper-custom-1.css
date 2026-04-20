@@ -15,17 +15,26 @@
   animation-delay: .8s;
 }
 
-/* ─── Hero: img-based slide, natural aspect ratio, no cropping ──────────── */
+/* ─── Hero: full image, no cropping, all browsers ───────────────────────────
+   Swiper JS only ever sets inline `height` — never `min-height`.
+   So min-height:calc() is immune to Swiper overrides.
+   calc(100vw * 785/1895) makes the hero exactly as tall as the image
+   is wide, at any viewport width — no cropping, no letterbox gaps.
+─────────────────────────────────────────────────────────────────────────── */
+#section-hero .vertical-center,
 #section-hero .swiper,
 #section-hero .swiper-wrapper,
-#section-hero .swiper-slide {
-  height: auto !important;
+#section-hero .swiper-slide,
+#section-hero .swiper-inner {
+  min-height: calc(100vw * 785 / 1895) !important;
 }
 
-#section-hero .swiper-slide img {
+#section-hero .swiper-inner {
   width: 100%;
-  height: auto;
-  display: block;
+  background-size: contain !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-color: #1C1428 !important;
 }
 
 @media (max-width: 576px) {
@@ -34,5 +43,8 @@
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
+  }
+  #section-hero .sm-hide {
+    display: none !important;
   }
 }

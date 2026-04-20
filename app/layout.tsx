@@ -57,8 +57,7 @@ export default function RootLayout({
             rel="stylesheet"
             href={href}
             media="print"
-            // @ts-expect-error onload attr swap
-            onLoad="this.media='all'"
+            onLoad={(e) => { (e.currentTarget as HTMLLinkElement).media = "all"; }}
           />
         ))}
         <noscript>

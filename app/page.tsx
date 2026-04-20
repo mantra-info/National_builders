@@ -487,9 +487,16 @@ export default function HomePage() {
 
                   <div className="mt-3">
                     <h4 className="mb-0">National Builders</h4>
-                    <div className="fw-500 id-color">+91 98475 33355</div>
-                    <div className="fw-500 id-color">+91 98475 44222</div>
-                    <div className="fw-500 id-color mt-1">marketingkochi@nationalbuilders.in</div>
+                    <a href="tel:+919847533355" className="d-block fw-500 id-color text-decoration-none">
+                      <i className="fa-solid fa-phone me-1" />+91 98475 33355
+                    </a>
+                    <a href="tel:+919847544222" className="d-block fw-500 id-color text-decoration-none">
+                      <i className="fa-solid fa-phone me-1" />+91 98475 44222
+                    </a>
+                    <a href="tel:+919847717771" className="d-block fw-500 id-color text-decoration-none">
+                      <i className="fa-solid fa-phone me-1" />+91 98477 17771
+                    </a>
+                    <div className="fw-500 id-color mt-1" style={{ fontSize: "0.8rem", wordBreak: "break-all" }}>marketingkochi@nationalbuilders.in</div>
                   </div>
                 </div>
               </div>

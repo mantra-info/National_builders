@@ -183,13 +183,13 @@ export default function HomePage() {
             <div className="row g-4 justify-content-between">
               <div className="col-lg-5">
                 <div className="ps-lg-3">
-                  <div className="subtitle wow fadeInUp" data-wow-delay=".2s">
+                  <div className="subtitle">
                     Home Overview
                   </div>
-                  <h2 className="wow fadeInUp" data-wow-delay=".4s">
+                  <h2 className="">
                     A Perfect Balance of Comfort, Design, and Everyday Convenience.
                   </h2>
-                  {/* <p className="wow fadeInUp" data-wow-delay=".6s">
+                  {/* <p className="">
                     Non anim in pariatur in ex excepteur commodo do officia amet incididunt ullamco nostrud aliquip
                     minim magna esse dolore..
                   </p> */}
@@ -212,8 +212,8 @@ export default function HomePage() {
                   ].map(([icon, title, description]) => (
                     <div key={title} className="col-md-6">
                       <div className="h-100 rounded-1">
-                        <i className={`${icon} fa-3x id-color mb-4 wow scaleIn d-block`} />
-                        <div className="relative wow fadeInUp">
+                        <i className={`${icon} fa-3x id-color mb-4 d-block`} />
+                        <div className="relative">
                           <h4>{title}</h4>
                           <p className="mb-0">{description}</p>
                         </div>
@@ -230,15 +230,15 @@ export default function HomePage() {
           <div className="container">
             <div className="row g-4 gx-5 justify-content-center">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">
+                <div className="subtitle s2 mb-3">
                   What We Offer
                 </div>
-                <h2 className="wow fadeInUp" data-wow-delay=".2s">
+                <h2 className="">
                   World-Class Amenities
                 </h2>
               </div>
             </div>
-            <div className="row g-4 wow fadeInUp" data-wow-delay=".3s">
+            <div className="row g-4">
               {amenities.map((a) => (
                 <div key={a.label} className="col-lg-4 col-md-6 col-12">
                   <div className="p-4 rounded-2 h-100 d-flex align-items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
@@ -257,16 +257,16 @@ export default function HomePage() {
           <div className="container">
             <div className="row g-4 gx-5 justify-content-center">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">
+                <div className="subtitle s2 mb-3">
                   Project Gallery
                 </div>
-                <h2 className="wow fadeInUp" data-wow-delay=".2s">
+                <h2 className="">
                   A Glimpse of Royal Living
                 </h2>
               </div>
             </div>
 
-            <div id="gallery-grid" className="row g-3 wow fadeInUp" data-wow-delay=".3s">
+            <div id="gallery-grid" className="row g-3">
               {galleryItems.map((image) => (
                 <div key={image} className="col-md-4 col-sm-6 col-12">
                   <a href={image} className="image-popup d-block hover">
@@ -289,13 +289,13 @@ export default function HomePage() {
             <div className="row g-4 align-items-center">
               <div className="col-lg-4">
                 <div className="pe-lg-3">
-                  <div className="subtitle wow fadeInUp" data-wow-delay=".2s">
+                  <div className="subtitle">
                     Discover
                   </div>
-                  <h2 className="wow fadeInUp" data-wow-delay=".4s">
+                  <h2 className="">
                     Home Floorplans
                   </h2>
-                  <p className="wow fadeInUp" data-wow-delay=".6s">
+                  <p className="">
                     National Royal Palace offers premium 3 & 4 BHK luxury apartments at Pathadipalam, Edappally —
                     thoughtfully crafted with contemporary design and superior construction quality for refined urban living.
                   </p>
@@ -335,8 +335,7 @@ export default function HomePage() {
                     <div key={file} className="relative">
                       <img
                         src={`/assets/images/floorplans/${file}`}
-                        className="w-100 wow fadeInUp"
-                        data-wow-delay=".2s"
+                        className="w-100"
                         alt={label}
                         loading="lazy"
                         decoding="async"
@@ -377,10 +376,10 @@ export default function HomePage() {
           <div className="container relative z-2">
             <div className="row g-4 gx-5 justify-content-center">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">
+                <div className="subtitle s2 mb-3">
                   Near by Places
                 </div>
-                <h2 className="wow fadeInUp" data-wow-delay=".2s">
+                <h2 className="">
                   Highlights Nearby
                 </h2>
               </div>
@@ -394,7 +393,7 @@ export default function HomePage() {
                 ["Edappally Metro Station", "1 km", "/assets/images/nearby/edappally-metro.jpg"]
               ].map(([label, distance, image]) => (
                 <div key={label} className="col-lg-3 col-md-6 col-sm-6 col-12">
-                  <div className="overflow-hidden rounded-1 text-light wow zoomIn" data-wow-delay=".0s" style={{ height: "280px", position: "relative" }}>
+                  <div className="overflow-hidden rounded-1 text-light" style={{ height: "280px", position: "relative" }}>
                     <img
                       src={image}
                       alt={label}
@@ -424,10 +423,10 @@ export default function HomePage() {
           <div className="container">
             <div className="row g-4 justify-content-center">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">
+                <div className="subtitle s2 mb-3">
                   Contact Us
                 </div>
-                <h2 className="wow fadeInUp" data-wow-delay=".2s">
+                <h2 className="">
                   Request a Callback
                 </h2>
               </div>

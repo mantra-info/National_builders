@@ -122,8 +122,33 @@ export default function HomePage() {
           </div>
         </header>
 
-        <section id="section-hero" className="text-light no-top no-bottom relative overflow-hidden z-1000">
-          <div className="abs w-100 z-2" style={{ bottom: "60px" }}>
+        {/* Hero: section height = image aspect ratio (1895×785).
+            Swiper fills 100% of the section — no internal height overrides needed. */}
+        <section id="section-hero" className="text-light no-top no-bottom overflow-hidden"
+          style={{ position: "relative", backgroundColor: "#1C1428",
+                   height: "clamp(280px, calc(100vw * 785 / 1895), 900px)" }}>
+          <div className="swiper" style={{ height: "100%" }}>
+            <div className="swiper-wrapper">
+              {["gbp22-opt.jpg", "Royal-Palace_opt.jpg"].map((image) => (
+                <div key={image} className="swiper-slide" style={{ height: "100%" }}>
+                  <div style={{
+                    height: "100%",
+                    backgroundImage: `url(/assets/images/${image})`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundColor: "#1C1428",
+                    position: "relative"
+                  }}>
+                    <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.25)" }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA buttons */}
+          <div style={{ position: "absolute", bottom: "12%", left: 0, right: 0, zIndex: 10 }}>
             <div className="container">
               <div className="row g-3 justify-content-center justify-content-lg-end">
                 <div className="col-12 col-sm-10 col-md-6 col-lg-4 text-center text-lg-start">
@@ -137,29 +162,9 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="vertical-center">
-            <div className="swiper">
-              <div className="swiper-wrapper">
-                {["gbp22-opt.jpg", "Royal-Palace_opt.jpg"].map((image) => (
-                  <div key={image} className="swiper-slide">
-                    <div
-                      className="swiper-inner"
-                      style={{
-                        backgroundImage: `url(/assets/images/${image})`,
-                        backgroundSize: "contain",
-                        backgroundPosition: "center center",
-                        backgroundRepeat: "no-repeat",
-                        backgroundColor: "#1C1428"
-                      }}
-                    >
-                      <div className="sw-overlay op-2" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="abs w-100 bottom-0 z-2 pb-4 sm-hide">
+
+          {/* Feature tags */}
+          <div className="sm-hide" style={{ position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 10, paddingBottom: "1rem" }}>
             <div className="container">
               <div className="d-flex justify-content-between">
                 {["Spacious Rooms", "Private Garden", "Walk-in Closets", "Swimming Pool"].map((item) => (
@@ -175,10 +180,10 @@ export default function HomePage() {
             <div className="row g-4 justify-content-between">
               <div className="col-lg-5">
                 <div className="ps-lg-3">
-                  <div className="subtitle">
+                  <div className="subtitle" data-aos="fade-up">
                     Home Overview
                   </div>
-                  <h2 className="">
+                  <h2 data-aos="fade-up" data-aos-delay="100">
                     A Perfect Balance of Comfort, Design, and Everyday Convenience.
                   </h2>
                   {/* <p className="">
@@ -222,10 +227,10 @@ export default function HomePage() {
           <div className="container">
             <div className="row g-4 gx-5 justify-content-center">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3">
+                <div className="subtitle s2 mb-3" data-aos="fade-up">
                   What We Offer
                 </div>
-                <h2 className="">
+                <h2 data-aos="fade-up" data-aos-delay="100">
                   World-Class Amenities
                 </h2>
               </div>
@@ -249,10 +254,10 @@ export default function HomePage() {
           <div className="container">
             <div className="row g-4 gx-5 justify-content-center">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3">
+                <div className="subtitle s2 mb-3" data-aos="fade-up">
                   Project Gallery
                 </div>
-                <h2 className="">
+                <h2 data-aos="fade-up" data-aos-delay="100">
                   A Glimpse of Royal Living
                 </h2>
               </div>
@@ -281,10 +286,10 @@ export default function HomePage() {
             <div className="row g-4 align-items-center">
               <div className="col-lg-4">
                 <div className="pe-lg-3">
-                  <div className="subtitle">
+                  <div className="subtitle" data-aos="fade-up">
                     Discover
                   </div>
-                  <h2 className="">
+                  <h2 data-aos="fade-up" data-aos-delay="100">
                     Home Floorplans
                   </h2>
                   <p className="">
@@ -368,10 +373,10 @@ export default function HomePage() {
           <div className="container relative z-2">
             <div className="row g-4 gx-5 justify-content-center">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3">
+                <div className="subtitle s2 mb-3" data-aos="fade-up">
                   Near by Places
                 </div>
-                <h2 className="">
+                <h2 data-aos="fade-up" data-aos-delay="100">
                   Highlights Nearby
                 </h2>
               </div>
@@ -415,10 +420,10 @@ export default function HomePage() {
           <div className="container">
             <div className="row g-4 justify-content-center">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3">
+                <div className="subtitle s2 mb-3" data-aos="fade-up">
                   Contact Us
                 </div>
-                <h2 className="">
+                <h2 data-aos="fade-up" data-aos-delay="100">
                   Request a Callback
                 </h2>
               </div>
@@ -610,27 +615,25 @@ export default function HomePage() {
       </Script>
       <Script id="template-load-fix" strategy="afterInteractive">
         {`window.setTimeout(function () {
-          try {
-            window.dispatchEvent(new Event("load"));
-          } catch (e) {}
-
-          window.setTimeout(function () {
-            var loader = document.getElementById("de-loader");
-            if (loader) {
-              loader.style.display = "none";
-            }
-          }, 800);
-
-          /* Re-init WOW so any elements missed on first pass get revealed */
-          window.setTimeout(function () {
-            try {
-              if (typeof WOW !== "undefined") {
-                new WOW({ mobile: true, live: false }).init();
-              }
-            } catch (e) {}
-          }, 600);
+          try { window.dispatchEvent(new Event("load")); } catch(e) {}
+          var loader = document.getElementById("de-loader");
+          if (loader) loader.style.display = "none";
         }, 150);`}
       </Script>
+      <Script id="aos-init" strategy="afterInteractive">{`
+        (function() {
+          var link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = "https://unpkg.com/aos@2.3.4/dist/aos.css";
+          document.head.appendChild(link);
+          var script = document.createElement("script");
+          script.src = "https://unpkg.com/aos@2.3.4/dist/aos.js";
+          script.onload = function() {
+            AOS.init({ duration: 700, once: true, offset: 60, easing: "ease-out-cubic" });
+          };
+          document.body.appendChild(script);
+        })();
+      `}</Script>
     </>
   );
 }

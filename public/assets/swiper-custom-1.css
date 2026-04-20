@@ -15,84 +15,51 @@
     animation-delay: .8s;
 }
 
-/* ─── Hero Section — fully responsive across all breakpoints ─── */
+/* ─── Hero: aspect-ratio-driven, full image always visible ──────────────────
+   Images are 1895×785 (ratio ≈ 2.41:1). We let the image's own proportions
+   set the container height so nothing gets cropped.
+   background-size: contain shows the whole image; dark bg fills any gaps.
+─────────────────────────────────────────────────────────────────────────── */
 
-/* Base: fill viewport height on desktop */
-#section-hero,
+/* Section is position:relative — height comes from swiper-inner */
+#section-hero {
+  min-height: 0 !important;
+}
+
+/* Let swiper containers size naturally */
+#section-hero .vertical-center,
 #section-hero .swiper,
 #section-hero .swiper-wrapper,
-#section-hero .swiper-slide,
-#section-hero .swiper-inner,
-#section-hero .vertical-center {
-  min-height: 100svh; /* svh = safe-area aware on mobile browsers */
+#section-hero .swiper-slide {
+  min-height: 0 !important;
+  height: auto !important;
 }
 
+/* The background div drives the height via aspect-ratio */
 #section-hero .swiper-inner {
-  background-size: cover !important;
+  aspect-ratio: 1895 / 785;
+  width: 100%;
+  background-size: contain !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
-  width: 100%;
+  background-color: var(--bg-dark-1, #1C1428) !important;
 }
 
-/* Tablet landscape / small laptop (769px – 1199px) */
-@media (max-width: 1199px) {
-  #section-hero,
-  #section-hero .swiper,
-  #section-hero .swiper-wrapper,
-  #section-hero .swiper-slide,
-  #section-hero .swiper-inner,
-  #section-hero .vertical-center {
-    min-height: 85svh;
-  }
-}
-
-/* Tablet portrait (577px – 768px) */
-@media (max-width: 768px) {
-  #section-hero,
-  #section-hero .swiper,
-  #section-hero .swiper-wrapper,
-  #section-hero .swiper-slide,
-  #section-hero .swiper-inner,
-  #section-hero .vertical-center {
-    min-height: 70svh;
-  }
-  #section-hero .swiper-inner {
-    background-position: center top !important;
-  }
-}
-
-/* Mobile (≤576px) */
+/* On very tall/narrow screens (portrait mobile) the image would be tiny.
+   Set a sensible minimum so the hero never collapses below 220px. */
 @media (max-width: 576px) {
-  #section-hero,
-  #section-hero .swiper,
-  #section-hero .swiper-wrapper,
-  #section-hero .swiper-slide,
-  #section-hero .swiper-inner,
-  #section-hero .vertical-center {
-    min-height: 60svh;
-  }
   #section-hero .swiper-inner {
-    background-position: 65% center !important;
+    min-height: 220px;
   }
+
   #section-hero .btn-main {
     display: block;
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
   }
+
   #section-hero .sm-hide {
     display: none !important;
-  }
-}
-
-/* Very small mobile (≤380px) */
-@media (max-width: 380px) {
-  #section-hero,
-  #section-hero .swiper,
-  #section-hero .swiper-wrapper,
-  #section-hero .swiper-slide,
-  #section-hero .swiper-inner,
-  #section-hero .vertical-center {
-    min-height: 55svh;
   }
 }

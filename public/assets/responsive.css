@@ -1,20 +1,35 @@
-/* ─── De-loader: disable full-page preloader overlay ─────────────────────────
-   #de-loader is position:fixed z-index:20000 covering the entire page.
-   It only hides when jQuery's window.load fires inside designesia.js — but
-   that script loads afterInteractive, so the native load event is already
-   gone. Result: the page stays blank until a timeout rescues it.
-   Hiding it here via CSS is instant and reliable.
-──────────────────────────────────────────────────────────────────────────── */
+/* ─── De-loader ─── */
 #de-loader {
   display: none !important;
 }
 
-/* ─── WOW.js override ────────────────────────────────────────────────────────
-   style.css sets .wow { visibility: hidden } — override so content is always
-   visible; scroll animations become optional enhancement only.
-──────────────────────────────────────────────────────────────────────────── */
+/* ─── WOW.js override ─── */
 .wow {
   visibility: visible !important;
+}
+
+/* ─── body overflow fix ───────────────────────────────────────────────────────
+   style.css sets body { overflow: hidden } for a custom-scroll pattern that
+   doesn't apply in our Next.js setup. This clips footer and lower sections.
+──────────────────────────────────────────────────────────────────────────── */
+body {
+  overflow: visible !important;
+}
+
+/* ─── Footer always dark ─────────────────────────────────────────────────────
+   CSS variable --bg-dark-1 can race against script initialisation.
+   Hard-code the colour so the footer is always dark on first paint.
+──────────────────────────────────────────────────────────────────────────── */
+footer {
+  background: #1C1428 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+footer h5,
+footer h6,
+footer a,
+footer p,
+footer li {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ─── Global Section Spacing ─── */

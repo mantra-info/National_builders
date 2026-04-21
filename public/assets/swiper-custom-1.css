@@ -23,6 +23,45 @@
   height: 100% !important;
 }
 
+/* Floorplan Swiper */
+.swiper-fp {
+  width: 100%;
+  user-select: none;
+}
+.swiper-fp .swiper-wrapper {
+  display: flex;
+  width: 100%;
+  box-sizing: content-box;
+  transition-property: transform;
+}
+.swiper-fp .swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  position: relative;
+}
+.swiper-fp .swiper-button-next,
+.swiper-fp .swiper-button-prev {
+  color: #fff;
+}
+.swiper-fp .swiper-pagination {
+  text-align: center;
+  margin-top: 10px;
+  position: static;
+}
+.swiper-fp .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.5;
+  margin: 0 4px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.swiper-fp .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
 @media (max-width: 576px) {
   #section-hero .btn-main {
     display: block;

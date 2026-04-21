@@ -36,6 +36,14 @@ export default function RootLayout({
         {stylesheetHrefs.map((href) => (
           <link key={href} rel="stylesheet" href={href} />
         ))}
+        {/* Critical overrides — inlined so they can never be blocked by file caching */}
+        <style>{`
+          body { overflow-x: hidden !important; overflow-y: auto !important; }
+          html { overflow-x: hidden !important; }
+          footer { background: #1C1428 !important; color: rgba(255,255,255,0.85) !important; display: block !important; visibility: visible !important; opacity: 1 !important; }
+          footer * { visibility: visible !important; }
+          #section-contact, #section-contact * { visibility: visible !important; opacity: 1; }
+        `}</style>
       </head>
       <body suppressHydrationWarning>{children}</body>
     </html>

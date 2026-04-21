@@ -307,39 +307,45 @@ export default function HomePage() {
               </div>
 
               <div className="col-lg-8">
-                <div className="owl-carousel owl-theme owl-single-dots">
-                  {[
-                    ["14TH-FLOOR-PLAN-scaled.jpg", "14th Floor Plan"],
-                    ["TYPICAL-LAYOUT-scaled.jpg", "Typical Layout"],
-                    ["FIRST-FLOOR-LAYOUT-1-scaled.jpg", "First Floor Layout"],
-                    ["GROUND-FLOOR-PLAN-2-scaled.jpg", "Ground Floor Plan"],
-                    ["BASEMENT-FLOOR-PLAN-scaled.jpg", "Basement Floor Plan"],
-                    ["TERRACE-FLOOR-PLAN-scaled.jpg", "Terrace Floor Plan"],
-                    ["SWIMMING-POOL-LEVEL-PLAN-2-scaled.jpg", "Swimming Pool Level"],
-                    ["FLAT-A-1-1-scaled.jpg", "Flat A-1"],
-                    ["FLAT-A-2-scaled.jpg", "Flat A-2"],
-                    ["FLAT-B-2-scaled.jpg", "Flat B"],
-                    ["FLAT-B1-scaled.jpg", "Flat B-1"],
-                    ["FLAT-C-2-scaled.jpg", "Flat C"],
-                    ["FLAT-C1-scaled.jpg", "Flat C-1"],
-                    ["FLAT-D-2-scaled.jpg", "Flat D"],
-                    ["FLAT-D1-scaled.jpg", "Flat D-1"],
-                    ["FLAT-E-2-scaled.jpg", "Flat E"],
-                    ["FLAT-F-2-scaled.jpg", "Flat F"]
-                  ].map(([file, label]) => (
-                    <div key={file} className="relative">
-                      <img
-                        src={`/assets/images/floorplans/${file}`}
-                        className="w-100"
-                        alt={label}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <div className="abs bottom-0 start-0 bg-blur px-4 py-2 m-3 rounded-1 text-white">
-                        <h6 className="mb-0">{label}</h6>
+                <div className="swiper-fp" style={{ position: "relative", overflow: "hidden" }}>
+                  <div className="swiper-wrapper">
+                    {[
+                      ["14TH-FLOOR-PLAN-scaled.jpg", "14th Floor Plan"],
+                      ["TYPICAL-LAYOUT-scaled.jpg", "Typical Layout"],
+                      ["FIRST-FLOOR-LAYOUT-1-scaled.jpg", "First Floor Layout"],
+                      ["GROUND-FLOOR-PLAN-2-scaled.jpg", "Ground Floor Plan"],
+                      ["BASEMENT-FLOOR-PLAN-scaled.jpg", "Basement Floor Plan"],
+                      ["TERRACE-FLOOR-PLAN-scaled.jpg", "Terrace Floor Plan"],
+                      ["SWIMMING-POOL-LEVEL-PLAN-2-scaled.jpg", "Swimming Pool Level"],
+                      ["FLAT-A-1-1-scaled.jpg", "Flat A-1"],
+                      ["FLAT-A-2-scaled.jpg", "Flat A-2"],
+                      ["FLAT-B-2-scaled.jpg", "Flat B"],
+                      ["FLAT-B1-scaled.jpg", "Flat B-1"],
+                      ["FLAT-C-2-scaled.jpg", "Flat C"],
+                      ["FLAT-C1-scaled.jpg", "Flat C-1"],
+                      ["FLAT-D-2-scaled.jpg", "Flat D"],
+                      ["FLAT-D1-scaled.jpg", "Flat D-1"],
+                      ["FLAT-E-2-scaled.jpg", "Flat E"],
+                      ["FLAT-F-2-scaled.jpg", "Flat F"]
+                    ].map(([file, label]) => (
+                      <div key={file} className="swiper-slide" style={{ position: "relative" }}>
+                        <img
+                          src={`/assets/images/floorplans/${file}`}
+                          className="w-100"
+                          alt={label}
+                          loading="lazy"
+                          decoding="async"
+                          style={{ display: "block" }}
+                        />
+                        <div style={{ position: "absolute", bottom: 0, left: 0, background: "rgba(0,0,0,0.5)", padding: "6px 16px", margin: "12px", borderRadius: "4px" }}>
+                          <h6 className="mb-0 text-white">{label}</h6>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  <div className="swiper-button-next" style={{ color: "#fff" }} />
+                  <div className="swiper-button-prev" style={{ color: "#fff" }} />
+                  <div className="swiper-pagination" />
                 </div>
               </div>
             </div>
@@ -614,8 +620,38 @@ export default function HomePage() {
       <Script id="template-load-fix" strategy="afterInteractive">
         {`window.setTimeout(function () {
           try { window.dispatchEvent(new Event("load")); } catch(e) {}
+          // Force footer and lower sections always visible
+          var f = document.querySelector("footer");
+          if (f) {
+            f.style.setProperty("background", "#1C1428", "important");
+            f.style.setProperty("visibility", "visible", "important");
+            f.style.setProperty("opacity", "1", "important");
+            f.style.setProperty("display", "block", "important");
+          }
+          var sc = document.getElementById("section-contact");
+          if (sc) {
+            sc.style.setProperty("visibility", "visible", "important");
+            sc.style.setProperty("opacity", "1", "important");
+          }
+          document.body.style.setProperty("overflow-y", "auto", "important");
+          document.body.style.setProperty("overflow-x", "hidden", "important");
         }, 150);`}
       </Script>
+      <Script id="floorplan-swiper-init" strategy="afterInteractive">{`
+        (function() {
+          function initFpSwiper() {
+            if (typeof Swiper === "undefined") { setTimeout(initFpSwiper, 100); return; }
+            new Swiper(".swiper-fp", {
+              slidesPerView: 1,
+              loop: true,
+              speed: 600,
+              navigation: { nextEl: ".swiper-fp .swiper-button-next", prevEl: ".swiper-fp .swiper-button-prev" },
+              pagination: { el: ".swiper-fp .swiper-pagination", clickable: true }
+            });
+          }
+          initFpSwiper();
+        })();
+      `}</Script>
       <Script id="aos-init" strategy="afterInteractive">{`
         (function() {
           var link = document.createElement("link");

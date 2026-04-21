@@ -1,4 +1,4 @@
-const de_swiper = new Swiper('.swiper', {
+const de_swiper = new Swiper('#section-hero .swiper', {
 
   autoplay: {
      delay: 3000,

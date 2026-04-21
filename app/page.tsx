@@ -506,7 +506,7 @@ export default function HomePage() {
         </section>
       </div>
 
-      <footer className="section-dark">
+      <footer className="section-dark" style={{ background: "#1C1428", color: "rgba(255,255,255,0.85)" }}>
         <div className="container">
           <div className="row g-4 g-lg-5">
 

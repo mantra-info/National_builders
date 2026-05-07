@@ -23,8 +23,8 @@ const de_swiper = new Swiper('#section-hero .swiper', {
 
   // Navigation arrows
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '#section-hero .swiper-button-next',
+    prevEl: '#section-hero .swiper-button-prev',
   },
 
   watchSlidesProgress: true

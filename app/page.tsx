@@ -1,56 +1,73 @@
 import Script from "next/script";
+import CallbackModal from "./components/CallbackModal";
 
 const amenities = [
-  { icon: "fa-solid fa-person-running",     label: "Rooftop Jogging Track"  },
-  { icon: "fa-solid fa-person-swimming",    label: "Swimming Pool"           },
-  { icon: "fa-solid fa-dumbbell",           label: "Fitness Center"          },
-  { icon: "fa-solid fa-child-reaching",     label: "Kids Play Area"          },
-  { icon: "fa-solid fa-film",               label: "AC Recreational Hall"    },
-  { icon: "fa-solid fa-bolt",               label: "EV Charging Point"       },
-  { icon: "fa-solid fa-house-chimney-user", label: "Club House"              },
-  { icon: "fa-solid fa-bed",                label: "Guest Room"              },
-  { icon: "fa-solid fa-seedling",           label: "Garden Area"             }
+  { icon: "fa-solid fa-leaf",              label: "Terrace Garden",     benefit: "Relax amidst lush greenery above the city" },
+  { icon: "fa-solid fa-champagne-glasses", label: "Party Area",         benefit: "Host memorable celebrations with loved ones" },
+  { icon: "fa-solid fa-dumbbell",          label: "Fitness Centre",     benefit: "Stay fit with modern gym equipment daily" },
+  { icon: "fa-solid fa-shield-halved",     label: "24/7 Security",      benefit: "Round-the-clock safety for your peace of mind" },
+  { icon: "fa-solid fa-square-parking",    label: "Covered Parking",    benefit: "Hassle-free dedicated parking for every flat" },
+  { icon: "fa-solid fa-person-swimming",   label: "Swimming Pool",      benefit: "Unwind in a pristine rooftop pool" },
+  { icon: "fa-solid fa-child-reaching",    label: "Kids Play Area",     benefit: "Safe outdoor space for children to thrive" },
+  { icon: "fa-solid fa-bolt",              label: "EV Charging Point",  benefit: "Future-ready charging for electric vehicles" },
+  { icon: "fa-solid fa-people-roof",       label: "Multipurpose Hall",  benefit: "Flexible venue for events and gatherings" },
 ];
 
-const galleryItems = [
-  "/assets/images/gallery-nrp/g1.jpeg",
-  "/assets/images/gallery-nrp/g2.jpeg",
-  "/assets/images/gallery-nrp/g3.jpeg",
-  "/assets/images/gallery-nrp/g4.jpeg",
-  "/assets/images/gallery-nrp/g5.jpeg",
-  "/assets/images/gallery-nrp/g6.jpeg",
-  "/assets/images/gallery-nrp/g7.jpeg",
-  "/assets/images/gallery-nrp/g8.jpeg",
-  "/assets/images/gallery-nrp/g9.jpeg",
-  "/assets/images/gallery-nrp/g10.jpeg",
-  "/assets/images/gallery-nrp/g11.jpeg",
-  "/assets/images/gallery-nrp/g12.jpeg",
-  "/assets/images/gallery-nrp/g13.jpeg"
+const interiorGallery = [
+  { src: "/assets/images/gallery-nrp/g1.jpg",  alt: "Club House" },
+  { src: "/assets/images/gallery-nrp/g2.jpg",  alt: "Entrance Lobby" },
+  { src: "/assets/images/gallery-nrp/g10.jpg", alt: "Lounge" },
+  { src: "/assets/images/gallery-nrp/g11.jpg", alt: "Lounge" },
+  { src: "/assets/images/gallery-nrp/g12.jpg", alt: "Party Hall" },
+  { src: "/assets/images/gallery-nrp/g13.jpg", alt: "Party Hall" },
+  { src: "/assets/images/gallery-nrp/g3.jpg",  alt: "Gym" },
+  { src: "/assets/images/gallery-nrp/g4.jpg",  alt: "Gym" },
+  { src: "/assets/images/gallery-nrp/g5.jpg",  alt: "Gym" },
+  { src: "/assets/images/gallery-nrp/g14.jpg", alt: "Swimming Pool" },
+  { src: "/assets/images/gallery-nrp/g6.png",  alt: "Kids Play Area" },
+  { src: "/assets/images/gallery-nrp/g7.png",  alt: "Kids Play Area" },
+  { src: "/assets/images/gallery-nrp/g8.png",  alt: "Kids Play Area" },
+  { src: "/assets/images/gallery-nrp/g9.png",  alt: "Kids Play Area" },
+];
+
+const exteriorGallery = [
+  { src: "/assets/images/gallery-nrp/g16.jpg", alt: "Aerial Day View" },
+  { src: "/assets/images/gallery-nrp/g15.jpg", alt: "Aerial Night View" },
 ];
 
 const floorplanRows = [
   ["Apartment Type", "3 & 4 BHK"],
-  ["Total Units", "83 Units"],
-  ["Plot Area", "1661 – 2555 sq.ft"],
+  ["Total Units",    "83 Units"],
+  ["Plot Area",      "1661 – 2555 sq.ft"],
   ["Starting Price", "₹1.75 Cr Onwards"],
-  ["Status", "Ongoing"],
-  ["RERA No.", "K-RERA/PRJ/ERN/156/2025"],
-  ["Location", "Pathadipalam, Edappally"],
-  ["Floors", "G + 14 Floors"]
+  ["Status",         "Ongoing"],
+  ["RERA No.",       "K-RERA/PRJ/ERN/156/2025"],
+  ["Location",       "Pathadipalam, Edappally"],
+  ["Floors",         "G + 14 Floors"],
 ];
 
+const testimonialVideos = [
+  "https://nationalbuilders.in/wp-content/uploads/2025/08/2.mp4",
+  "https://nationalbuilders.in/wp-content/uploads/2025/08/3.mp4",
+  "https://nationalbuilders.in/wp-content/uploads/2025/08/4.mp4",
+  "https://nationalbuilders.in/wp-content/uploads/2025/08/5.mp4",
+  "https://nationalbuilders.in/wp-content/uploads/2025/08/06.mp4",
+  "https://nationalbuilders.in/wp-content/uploads/2025/08/7.mp4",
+  "https://nationalbuilders.in/wp-content/uploads/2025/08/8.mp4",
+  "https://nationalbuilders.in/wp-content/uploads/2025/08/0812.mp4",
+  "https://nationalbuilders.in/wp-content/uploads/2025/08/FInal-Rama-menon-.mp4",
+];
 
 export default function HomePage() {
   return (
     <>
-      <div id="wrapper">
+      <div id="wrapper" className="nrp-page">
         <div className="float-text show-on-scroll">
-          <span>
-            <a href="#">Scroll to top</a>
-          </span>
+          <span><a href="#">Scroll to top</a></span>
         </div>
         <div className="scrollbar-v show-on-scroll" />
 
+        {/* ── Header ── */}
         <header className="transparent header-light header-float">
           <div className="container">
             <div className="row">
@@ -60,55 +77,29 @@ export default function HomePage() {
                     <div className="de-flex-col">
                       <div id="logo">
                         <a href="/">
-                          <img className="logo-main" src="/assets/images/national-royal-palace-logo.png" alt="National Royal Palace" style={{ maxHeight: "60px", width: "auto" }} />
+                          <img className="logo-main"   src="/assets/images/national-royal-palace-logo.png" alt="National Royal Palace" style={{ maxHeight: "60px", width: "auto" }} />
                           <img className="logo-scroll" src="/assets/images/national-royal-palace-logo.png" alt="National Royal Palace" style={{ maxHeight: "50px", width: "auto" }} />
                           <img className="logo-mobile" src="/assets/images/national-royal-palace-logo.png" alt="National Royal Palace" style={{ maxHeight: "44px", width: "auto" }} />
                         </a>
                       </div>
                     </div>
-
                     <div className="de-flex-col">
                       <div className="de-flex-col header-col-mid">
                         <ul id="mainmenu">
-                          <li>
-                            <a className="menu-item" href="#">
-                              Home
-                            </a>
-                          </li>
-                          <li>
-                            <a className="menu-item" href="#section-overview">
-                              Overview
-                            </a>
-                          </li>
-                          <li>
-                            <a className="menu-item" href="#section-amenities">
-                              Amenities
-                            </a>
-                          </li>
-                          <li>
-                            <a className="menu-item" href="#section-gallery">
-                              Gallery
-                            </a>
-                          </li>
-                          <li>
-                            <a className="menu-item" href="#section-floorplan">
-                              Floorplan
-                            </a>
-                          </li>
-                          <li>
-                            <a className="menu-item" href="#section-contact">
-                              Contact
-                            </a>
-                          </li>
+                          <li><a className="menu-item" href="#">Home</a></li>
+                          <li><a className="menu-item" href="#section-about">About</a></li>
+                          <li><a className="menu-item" href="#section-amenities">Amenities</a></li>
+                          <li><a className="menu-item" href="#section-gallery">Gallery</a></li>
+                          <li><a className="menu-item" href="#section-floorplan">Floorplan</a></li>
+                          <li><a className="menu-item" href="#section-testimonials">Reviews</a></li>
+                          <li><a className="menu-item" href="#section-contact">Contact</a></li>
                         </ul>
                       </div>
                     </div>
-
                     <div className="de-flex-col">
-                      <a className="btn-main fx-slide w-100" href="#section-contact">
+                      <a className="btn-main fx-slide" href="#section-contact" data-callback-modal>
                         <span>Request a Callback</span>
                       </a>
-
                       <div className="menu_side_area">
                         <span id="menu-btn" />
                       </div>
@@ -120,127 +111,173 @@ export default function HomePage() {
           </div>
         </header>
 
-        {/* Hero: section height = image aspect ratio (1895×785).
-            Swiper fills 100% of the section — no internal height overrides needed. */}
-        <section id="section-hero" className="text-light no-top no-bottom overflow-hidden"
-          style={{ position: "relative", backgroundColor: "#1C1428",
-                   height: "clamp(280px, calc(100vw * 785 / 1895), 900px)" }}>
-          <div className="swiper" style={{ height: "100%" }}>
-            <div className="swiper-wrapper">
-              {["gbp22-opt.jpg", "Royal-Palace_opt.jpg"].map((image) => (
-                <div key={image} className="swiper-slide" style={{ height: "100%" }}>
-                  <div style={{
-                    height: "100%",
-                    backgroundImage: `url(/assets/images/${image})`,
-                    backgroundSize: "contain",
-                    backgroundPosition: "center center",
-                    backgroundRepeat: "no-repeat",
-                    backgroundColor: "#1C1428",
-                    position: "relative"
-                  }}>
-                    <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.25)" }} />
+        {/* ── 1. Hero ── */}
+        <section id="section-hero" className="no-top no-bottom nrp-hero-section" style={{ background: "#1C1428", minHeight: "100vh", display: "flex", alignItems: "center" }}>
+          <div className="nrp-hero-orb nrp-hero-orb-1" />
+          <div className="nrp-hero-orb nrp-hero-orb-2" />
+          <div className="container" style={{ paddingTop: "110px", paddingBottom: "60px" }}>
+            <div className="row align-items-center g-5">
+
+              {/* Left: text */}
+              <div className="col-lg-6 text-light" data-aos="fade-right">
+                <div className="nrp-pill mb-3">National Royal Palace</div>
+                <h1 className="mb-3 text-white" style={{ fontSize: "clamp(2rem, 4.5vw, 3.2rem)", lineHeight: 1.15, fontWeight: 700 }}>
+                  Premium 3 &amp; 4 BHK<br />Apartments in Kochi
+                </h1>
+                <p className="mb-4" style={{ fontSize: "1.05rem", maxWidth: "480px", color: "rgba(255,255,255,0.7)", lineHeight: 1.75 }}>
+                  Spacious homes in a prime location with world-class amenities at Pathadipalam, Edappally — where luxury meets lifestyle.
+                </p>
+
+                <div className="d-flex flex-wrap gap-2 mb-5">
+                  {[
+                    ["fa-solid fa-map-pin",              "Pathadipalam, Edappally"],
+                    ["fa-solid fa-building",             "G + 14 Floors"],
+                    ["fa-solid fa-indian-rupee-sign",    "From ₹1.75 Cr"],
+                  ].map(([icon, text]) => (
+                    <div key={text} className="d-flex align-items-center gap-2 nrp-hero-chip">
+                      <i className={`${icon} id-color`} style={{ fontSize: "0.85rem" }} />
+                      <span>{text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="d-flex flex-wrap gap-3 mb-5">
+                  <a className="btn-main fx-slide" href="#section-contact" data-callback-modal><span>Request a Callback</span></a>
+                  <a className="btn-main btn-line fx-slide" href="#section-about"><span>Explore Property</span></a>
+                </div>
+
+                <div className="d-flex flex-wrap gap-4 nrp-trust-row">
+                  {[
+                    ["fa-solid fa-star",         "4.8 Rating"],
+                    ["fa-solid fa-shield-halved", "RERA Approved"],
+                    ["fa-solid fa-users",         "500+ Families"],
+                  ].map(([icon, text]) => (
+                    <span key={text} className="d-flex align-items-center gap-2" style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.88rem" }}>
+                      <i className={`${icon} id-color`} />
+                      {text}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right: building image */}
+              <div className="col-lg-6" data-aos="fade-left" data-aos-delay="120">
+                <div className="nrp-hero-visual" style={{ position: "relative" }}>
+                  <img
+                    src="/assets/images/gbp22-opt.jpg"
+                    alt="National Royal Palace Exterior"
+                    className="w-100"
+                    fetchPriority="high"
+                    style={{ borderRadius: "20px", objectFit: "cover", maxHeight: "560px", display: "block", boxShadow: "0 40px 90px rgba(0,0,0,0.55)" }}
+                  />
+                  {/* Floating metric */}
+                  <div className="nrp-floating-metric">
+                    <strong>G+14</strong>
+                    <span>Floors of Luxury</span>
+                  </div>
+                  {/* RERA glass badge */}
+                  <div className="nrp-glass-card" style={{ position: "absolute", bottom: "24px", left: "24px", padding: "10px 18px" }}>
+                    <div style={{ fontSize: "0.7rem", opacity: 0.7, textTransform: "uppercase", letterSpacing: "0.07em", color: "#fff", marginBottom: "2px" }}>RERA Approved</div>
+                    <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "#fff" }}>K-RERA/PRJ/ERN/156/2025</div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* CTA buttons */}
-          <div style={{ position: "absolute", bottom: "12%", left: 0, right: 0, zIndex: 10 }}>
-            <div className="container">
-              <div className="row g-3 justify-content-center justify-content-lg-end">
-                <div className="col-12 col-sm-10 col-md-6 col-lg-4 text-center text-lg-start">
-                  <a className="btn-main btn-line bg-blur fx-slide me-2 mb-2" href="#section-contact">
-                    <span>Request a Callback</span>
-                  </a>
-                  <a className="btn-main btn-line bg-blur fx-slide mb-2" href="#section-overview">
-                    <span>Explore Property</span>
-                  </a>
-                </div>
               </div>
-            </div>
-          </div>
 
-          {/* Feature tags */}
-          <div className="sm-hide" style={{ position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 10, paddingBottom: "1rem" }}>
-            <div className="container">
-              <div className="d-flex justify-content-between">
-                {["Spacious Rooms", "Private Garden", "Walk-in Closets", "Swimming Pool"].map((item) => (
-                  <div key={item}><h6>{item}</h6></div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
 
-        <section id="section-overview">
+        {/* ── 2. About ── */}
+        <section id="section-about">
           <div className="container">
-            <div className="row g-4 justify-content-between">
-              <div className="col-lg-5">
-                <div className="ps-lg-3">
-                  <div className="subtitle" data-aos="fade-up">
-                    Home Overview
+
+            {/* Stats */}
+            <div className="row g-3 mb-5">
+              {[
+                ["35+",     "Years of Excellence"],
+                ["135+",    "Landmark Projects"],
+                ["10,000+", "Happy Families"],
+                ["G+14",    "Floors of Luxury"],
+              ].map(([stat, label], i) => (
+                <div key={label} className="col-6 col-md-3" data-aos="fade-up" data-aos-delay={`${i * 80}`}>
+                  <div className="nrp-stat-card rounded-3 p-4 text-center h-100">
+                    <h2 className="id-color mb-1" style={{ fontSize: "2.2rem", fontWeight: 800 }}>{stat}</h2>
+                    <p className="mb-0 fs-14 opacity-75">{label}</p>
                   </div>
-                  <h2 data-aos="fade-up" data-aos-delay="100">
-                    A Perfect Balance of Comfort, Design, and Everyday Convenience.
-                  </h2>
-                  {/* <p className="">
-                    Non anim in pariatur in ex excepteur commodo do officia amet incididunt ullamco nostrud aliquip
-                    minim magna esse dolore..
-                  </p> */}
-
-                  <a className="btn-main fx-slide" href="#section-contact">
-                    <span>Request a Callback</span>
-                  </a>
                 </div>
-              </div>
+              ))}
+            </div>
 
-              <div className="col-lg-6">
-                <div className="row g-4">
+            <div className="row g-5 align-items-center">
+              <div className="col-lg-5" data-aos="fade-right">
+                <div className="subtitle mb-2">About Us</div>
+                <h2 className="mb-3">Building Dreams with Trust &amp; Quality Since 1990</h2>
+                <p style={{ color: "rgba(32,24,40,0.72)", lineHeight: 1.8 }} className="mb-4">
+                  National Builders is a leading real estate developer with 135+ landmark projects across Navi Mumbai and Kerala. Our commitment to quality construction, timely delivery, and customer satisfaction has made us a trusted name in premium real estate.
+                </p>
+                <div className="d-flex flex-column gap-3 mb-4">
                   {[
-                    ["fa-solid fa-tree", "Terrace Garden & Party Area", "Enjoy stunning views and host memorable moments in a premium rooftop setting."],
-                    ["fa-solid fa-dumbbell", "Fully Equipped Fitness Centre", "Stay active and healthy with a modern gym featuring essential equipment for your daily workouts."],
-                    ["fa-solid fa-child-reaching", "Children’s Play Area", "A safe and engaging space where children can play, explore, and enjoy their time freely."],
-                    ["fa-solid fa-bolt", "24/7 Power Backup", "Reliable power backup system ensuring uninterrupted comfort at all times."],
-                    ["fa-solid fa-droplet", "Rainwater Harvesting System", "Eco-friendly water management system designed to support sustainable living."],
-                    ["fa-solid fa-people-roof", "Multipurpose Hall", "A flexible space ideal for events, celebrations, and community gatherings."]
-                  ].map(([icon, title, description]) => (
-                    <div key={title} className="col-md-6">
-                      <div className="h-100 rounded-1">
-                        <i className={`${icon} fa-3x id-color mb-4 d-block`} />
-                        <div className="relative">
-                          <h4>{title}</h4>
-                          <p className="mb-0">{description}</p>
-                        </div>
+                    ["fa-solid fa-clock",     "On-Time Delivery",            "We honour every deadline — your dream home, delivered as promised."],
+                    ["fa-solid fa-medal",     "Premium Construction Quality", "Superior materials and meticulous craftsmanship in every detail."],
+                    ["fa-solid fa-handshake", "Customer-First Approach",      "Transparent dealings and after-sales support you can count on."],
+                  ].map(([icon, title, desc]) => (
+                    <div key={title} className="d-flex gap-3 align-items-start">
+                      <div className="nrp-icon-box flex-shrink-0 rounded-2 d-flex align-items-center justify-content-center" style={{ width: 48, height: 48, color: "#fff", fontSize: "1rem" }}>
+                        <i className={icon} />
+                      </div>
+                      <div>
+                        <h6 className="mb-1 fw-600">{title}</h6>
+                        <p className="mb-0 fs-14" style={{ color: "rgba(32,24,40,0.65)" }}>{desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
+                <a className="btn-main fx-slide" href="#section-contact" data-callback-modal><span>Request a Callback</span></a>
+              </div>
+
+              <div className="col-lg-7" data-aos="fade-left" data-aos-delay="100">
+                <div style={{ position: "relative" }}>
+                  <img
+                    src="/assets/images/gallery-nrp/g16.jpg"
+                    alt="National Royal Palace Aerial View"
+                    className="w-100"
+                    loading="lazy"
+                    style={{ borderRadius: "20px", objectFit: "cover", height: "480px", display: "block", boxShadow: "0 24px 60px rgba(32,24,40,0.18)" }}
+                  />
+                  {/* Floating stat pill */}
+                  <div style={{ position: "absolute", bottom: "24px", right: "24px", background: "rgba(28,20,40,0.88)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: "14px", padding: "14px 22px", color: "#fff", textAlign: "center" }}>
+                    <div className="id-color fw-800" style={{ fontSize: "1.6rem", lineHeight: 1 }}>83</div>
+                    <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.65)", marginTop: "4px" }}>Premium Units</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* ── 3. Amenities ── */}
         <section id="section-amenities" className="bg-dark section-dark text-light">
           <div className="container">
-            <div className="row g-4 gx-5 justify-content-center">
+            <div className="row justify-content-center mb-5">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3" data-aos="fade-up">
-                  What We Offer
-                </div>
-                <h2 data-aos="fade-up" data-aos-delay="100">
-                  World-Class Amenities
-                </h2>
+                <div className="subtitle s2 mb-3" data-aos="fade-up">What We Offer</div>
+                <h2 data-aos="fade-up" data-aos-delay="80">World-Class Amenities</h2>
+                <p className="mt-2" style={{ color: "rgba(255,255,255,0.6)" }} data-aos="fade-up" data-aos-delay="140">
+                  Every detail at National Royal Palace is curated for comfort, leisure, and modern living.
+                </p>
               </div>
             </div>
             <div className="row g-4">
-              {amenities.map((a) => (
-                <div key={a.label} className="col-lg-4 col-md-6 col-12">
-                  <div className="p-4 rounded-2 h-100 d-flex align-items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                    <div className="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0" style={{ width: 54, height: 54, background: "var(--primary-color)", fontSize: "1.4rem", color: "#fff" }}>
+              {amenities.map((a, i) => (
+                <div key={a.label} className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay={`${(i % 3) * 80}`}>
+                  <div className="nrp-dark-card rounded-3 p-4 h-100 d-flex gap-3 align-items-start">
+                    <div className="nrp-icon-box flex-shrink-0 rounded-2 d-flex align-items-center justify-content-center" style={{ width: 52, height: 52, color: "#fff", fontSize: "1.25rem" }}>
                       <i className={a.icon} />
                     </div>
-                    <h5 className="mb-0 fw-500">{a.label}</h5>
+                    <div>
+                      <h5 className="mb-1 fw-600" style={{ fontSize: "1rem" }}>{a.label}</h5>
+                      <p className="mb-0 fs-14" style={{ color: "rgba(255,255,255,0.6)" }}>{a.benefit}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -248,103 +285,147 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="section-gallery" className="bg-color-op-1">
+        {/* ── 4. Gallery ── */}
+        <section id="section-gallery">
           <div className="container">
-            <div className="row g-4 gx-5 justify-content-center">
+            <div className="row justify-content-center mb-5">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3" data-aos="fade-up">
-                  Project Gallery
-                </div>
-                <h2 data-aos="fade-up" data-aos-delay="100">
-                  A Glimpse of Royal Living
-                </h2>
+                <div className="subtitle s2 mb-3" data-aos="fade-up">Project Gallery</div>
+                <h2 data-aos="fade-up" data-aos-delay="80">A Glimpse of Royal Living</h2>
               </div>
             </div>
 
-            <div id="gallery-grid" className="row g-3">
-              {galleryItems.map((image) => (
-                <div key={image} className="col-md-4 col-sm-6 col-12">
-                  <a href={image} className="image-popup d-block hover">
-                    <div className="relative overflow-hidden rounded-1">
-                      <div className="absolute start-0 w-100 hover-op-1 p-5 abs-middle z-2 text-center text-white z-3">
-                        View
-                      </div>
-                      <div className="absolute start-0 w-100 h-100 overlay-dark-7 hover-op-1 z-2" />
-                      <img src={image} className="w-100 hover-scale-1-2" alt="National Royal Palace" loading="lazy" decoding="async" style={{ height: "240px", objectFit: "cover" }} />
+            {/* Interior section label */}
+            <div className="mb-3" data-aos="fade-up">
+              <span style={{ fontSize: "0.78rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", opacity: 0.45 }}>
+                <i className="fa-solid fa-circle id-color me-2" style={{ fontSize: "0.5rem", verticalAlign: "middle" }} />
+                Interior Views
+              </span>
+            </div>
+
+            <div className="row g-3 mb-4">
+              {/* Two featured interior images */}
+              {interiorGallery.slice(0, 2).map((img, i) => (
+                <div key={img.src} className="col-md-6" data-aos="fade-up" data-aos-delay={`${i * 80}`}>
+                  <a href={img.src} className="image-popup d-block nrp-gallery-card hover" style={{ position: "relative", overflow: "hidden", borderRadius: "14px", display: "block" }}>
+                    <div className="absolute start-0 w-100 h-100 overlay-dark-7 hover-op-1" style={{ zIndex: 2 }} />
+                    <div className="nrp-gallery-caption hover-op-1" style={{ zIndex: 3 }}>
+                      <i className="fa-solid fa-magnifying-glass-plus me-2" />{img.alt}
                     </div>
+                    <img src={img.src} className="w-100 hover-scale-1-2" alt={img.alt}
+                      loading="lazy" decoding="async" style={{ height: "300px", objectFit: "cover", display: "block" }} />
+                  </a>
+                </div>
+              ))}
+              {/* Remaining interior */}
+              {interiorGallery.slice(2).map((img, i) => (
+                <div key={img.src} className="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay={`${(i % 3) * 60}`}>
+                  <a href={img.src} className="image-popup d-block nrp-gallery-card hover" style={{ position: "relative", overflow: "hidden", borderRadius: "14px", display: "block" }}>
+                    <div className="absolute start-0 w-100 h-100 overlay-dark-7 hover-op-1" style={{ zIndex: 2 }} />
+                    <div className="nrp-gallery-caption hover-op-1" style={{ zIndex: 3 }}>
+                      <i className="fa-solid fa-magnifying-glass-plus me-2" />{img.alt}
+                    </div>
+                    <img src={img.src} className="w-100 hover-scale-1-2" alt={img.alt}
+                      loading="lazy" decoding="async" style={{ height: "230px", objectFit: "cover", display: "block" }} />
                   </a>
                 </div>
               ))}
             </div>
+
+            {/* Exterior section label */}
+            <div className="mb-3 mt-3" data-aos="fade-up">
+              <span style={{ fontSize: "0.78rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", opacity: 0.45 }}>
+                <i className="fa-solid fa-circle id-color me-2" style={{ fontSize: "0.5rem", verticalAlign: "middle" }} />
+                Exterior Views
+              </span>
+            </div>
+            <div className="row g-3 mb-5">
+              {exteriorGallery.map((img, i) => (
+                <div key={img.src} className="col-md-6" data-aos="fade-up" data-aos-delay={`${i * 80}`}>
+                  <a href={img.src} className="image-popup d-block nrp-gallery-card hover" style={{ position: "relative", overflow: "hidden", borderRadius: "14px", display: "block" }}>
+                    <div className="absolute start-0 w-100 h-100 overlay-dark-7 hover-op-1" style={{ zIndex: 2 }} />
+                    <div className="nrp-gallery-caption hover-op-1" style={{ zIndex: 3 }}>
+                      <i className="fa-solid fa-magnifying-glass-plus me-2" />{img.alt}
+                    </div>
+                    <img src={img.src} className="w-100 hover-scale-1-2" alt={img.alt}
+                      loading="lazy" decoding="async" style={{ height: "320px", objectFit: "cover", display: "block" }} />
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center" data-aos="fade-up">
+              <p className="mb-3" style={{ color: "rgba(32,24,40,0.6)" }}>Experience the project in person — schedule a free site visit today.</p>
+              <a className="btn-main fx-slide" href="#section-contact" data-callback-modal><span>Schedule a Site Visit</span></a>
+            </div>
           </div>
         </section>
 
+        {/* ── 5. Floor Plan ── */}
         <section id="section-floorplan" className="bg-dark section-dark text-light">
           <div className="container">
-            <div className="row g-4 align-items-center">
-              <div className="col-lg-4">
-                <div className="pe-lg-3">
-                  <div className="subtitle" data-aos="fade-up">
-                    Discover
-                  </div>
-                  <h2 data-aos="fade-up" data-aos-delay="100">
-                    Home Floorplans
-                  </h2>
-                  <p className="">
-                    National Royal Palace offers premium 3 & 4 BHK luxury apartments at Pathadipalam, Edappally —
-                    thoughtfully crafted with contemporary design and superior construction quality for refined urban living.
-                  </p>
+            <div className="row justify-content-center mb-5">
+              <div className="col-lg-6 text-center">
+                <div className="subtitle mb-3" data-aos="fade-up">Discover</div>
+                <h2 data-aos="fade-up" data-aos-delay="80">Home Floorplans</h2>
+              </div>
+            </div>
 
-                  <div className="relative overflow-hidden">
+            <div className="row g-4 align-items-start">
+              {/* Info panel */}
+              <div className="col-lg-4" data-aos="fade-right">
+                <div className="nrp-floorplan-panel rounded-3 p-4 mb-4">
+                  <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.8 }} className="mb-4">
+                    National Royal Palace offers premium 3 &amp; 4 BHK luxury apartments at Pathadipalam, Edappally — thoughtfully crafted with contemporary design and superior construction quality.
+                  </p>
+                  <div className="rounded-3 overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.1)" }}>
                     {floorplanRows.map(([label, value], index) => (
-                      <div key={label} className={`d-flex px-4 py-2 ${index % 2 === 0 ? "bg-dark-2" : ""}`}>
-                        <div className="w-60">{label}</div>
-                        <div className="w-40 fw-600">{value}</div>
+                      <div key={label} className="d-flex align-items-center px-4 py-3"
+                        style={{ background: index % 2 === 0 ? "rgba(255,255,255,0.05)" : "transparent", borderBottom: index < floorplanRows.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
+                        <div className="fs-14" style={{ flex: "0 0 55%", color: "rgba(255,255,255,0.6)" }}>{label}</div>
+                        <div className="fw-700 fs-14 id-color" style={{ flex: "0 0 45%" }}>{value}</div>
                       </div>
                     ))}
                   </div>
                 </div>
+                <a className="btn-main fx-slide" href="#section-contact" data-callback-modal><span>Enquire Now</span></a>
               </div>
 
-              <div className="col-lg-8">
-                <div className="swiper-fp" style={{ position: "relative", overflow: "hidden" }}>
+              {/* Swiper carousel */}
+              <div className="col-lg-8" data-aos="fade-left" data-aos-delay="100">
+                <div className="nrp-floorplan-carousel swiper-fp rounded-3" style={{ position: "relative", boxShadow: "0 24px 70px rgba(0,0,0,0.45)", overflow: "hidden" }}>
                   <div className="swiper-wrapper">
                     {[
-                      ["14TH-FLOOR-PLAN-scaled.jpg", "14th Floor Plan"],
-                      ["TYPICAL-LAYOUT-scaled.jpg", "Typical Layout"],
-                      ["FIRST-FLOOR-LAYOUT-1-scaled.jpg", "First Floor Layout"],
-                      ["GROUND-FLOOR-PLAN-2-scaled.jpg", "Ground Floor Plan"],
-                      ["BASEMENT-FLOOR-PLAN-scaled.jpg", "Basement Floor Plan"],
-                      ["TERRACE-FLOOR-PLAN-scaled.jpg", "Terrace Floor Plan"],
-                      ["SWIMMING-POOL-LEVEL-PLAN-2-scaled.jpg", "Swimming Pool Level"],
-                      ["FLAT-A-1-1-scaled.jpg", "Flat A-1"],
-                      ["FLAT-A-2-scaled.jpg", "Flat A-2"],
-                      ["FLAT-B-2-scaled.jpg", "Flat B"],
-                      ["FLAT-B1-scaled.jpg", "Flat B-1"],
-                      ["FLAT-C-2-scaled.jpg", "Flat C"],
-                      ["FLAT-C1-scaled.jpg", "Flat C-1"],
-                      ["FLAT-D-2-scaled.jpg", "Flat D"],
-                      ["FLAT-D1-scaled.jpg", "Flat D-1"],
-                      ["FLAT-E-2-scaled.jpg", "Flat E"],
-                      ["FLAT-F-2-scaled.jpg", "Flat F"]
+                      ["BASEMENT-FLOOR-PLAN-scaled.jpg",       "Basement Floor Plan"],
+                      ["GROUND-FLOOR-PLAN-2-scaled.jpg",       "Ground Floor Plan"],
+                      ["FIRST-FLOOR-LAYOUT-1-scaled.jpg",      "First Floor Layout"],
+                      ["TYPICAL-LAYOUT-scaled.jpg",            "Typical Layout"],
+                      ["14TH-FLOOR-PLAN-scaled.jpg",           "14th Floor Plan"],
+                      ["TERRACE-FLOOR-PLAN-scaled.jpg",        "Terrace Floor Plan"],
+                      ["SWIMMING-POOL-LEVEL-PLAN-2-scaled.jpg","Swimming Pool Level"],
+                      ["FLAT-A-1-1-scaled.jpg",                "Flat A-1"],
+                      ["FLAT-A-2-scaled.jpg",                  "Flat A-2"],
+                      ["FLAT-B1-scaled.jpg",                   "Flat B-1"],
+                      ["FLAT-B-2-scaled.jpg",                  "Flat B-2"],
+                      ["FLAT-C1-scaled.jpg",                   "Flat C-1"],
+                      ["FLAT-C-2-scaled.jpg",                  "Flat C-2"],
+                      ["FLAT-D1-scaled.jpg",                   "Flat D-1"],
+                      ["FLAT-D-2-scaled.jpg",                  "Flat D-2"],
+                      ["FLAT-E-2-scaled.jpg",                  "Flat E"],
+                      ["FLAT-F-2-scaled.jpg",                  "Flat F"],
                     ].map(([file, label]) => (
                       <div key={file} className="swiper-slide" style={{ position: "relative" }}>
-                        <img
-                          src={`/assets/images/floorplans/${file}`}
-                          className="w-100"
-                          alt={label}
-                          loading="lazy"
-                          decoding="async"
-                          style={{ display: "block" }}
-                        />
-                        <div style={{ position: "absolute", bottom: 0, left: 0, background: "rgba(0,0,0,0.5)", padding: "6px 16px", margin: "12px", borderRadius: "4px" }}>
-                          <h6 className="mb-0 text-white">{label}</h6>
+                        <img src={`/assets/images/floorplans/${file}`} className="w-100" alt={label}
+                          loading="lazy" decoding="async"
+                          style={{ display: "block", height: "480px", objectFit: "contain", background: "#f9f7f4" }} />
+                        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%)", padding: "36px 20px 16px" }}>
+                          <h6 className="mb-0 text-white fw-600">{label}</h6>
                         </div>
                       </div>
                     ))}
                   </div>
-                  <div className="swiper-button-next" style={{ color: "#fff" }} />
-                  <div className="swiper-button-prev" style={{ color: "#fff" }} />
+                  <div id="fp-next" className="swiper-button-next" style={{ color: "#fff" }} />
+                  <div id="fp-prev" className="swiper-button-prev" style={{ color: "#fff" }} />
                   <div className="swiper-pagination" />
                 </div>
               </div>
@@ -352,20 +433,19 @@ export default function HomePage() {
 
             <div className="spacer-double" />
 
+            {/* Key specs */}
             <div className="row g-3">
               {[
-                ["Plot Area", "/images/svg/size.svg", "1661 – 2555 sqft"],
-                ["Bedrooms", "/images/svg/bed.svg", "3 – 4 BHK"],
-                ["Total Units", "/images/svg/bath.svg", "83 Units"],
-                ["Parking Slots", "/images/svg/car.svg", "1 Per Unit"]
-              ].map(([title, icon, value]) => (
-                <div key={title} className="col-md-3 col-6">
-                  <div className="bg-dark-2 py-4 rounded-1 text-center">
-                    <h4>{title}</h4>
-                    <div className="d-flex justify-content-center align-items-center">
-                      <img src={icon} className="w-40px me-3" alt="" loading="lazy" decoding="async" />
-                      <div>{value}</div>
-                    </div>
+                ["fa-solid fa-vector-square", "Plot Area",   "1661 – 2555 sqft"],
+                ["fa-solid fa-bed",           "Bedrooms",    "3 – 4 BHK"],
+                ["fa-solid fa-building",      "Total Units", "83 Units"],
+                ["fa-solid fa-car",           "Parking",     "1 Per Unit"],
+              ].map(([icon, title, value], i) => (
+                <div key={title} className="col-md-3 col-6" data-aos="fade-up" data-aos-delay={`${i * 80}`}>
+                  <div className="nrp-dark-card rounded-3 py-4 px-3 text-center">
+                    <i className={`${icon} id-color mb-3 d-block`} style={{ fontSize: "1.6rem" }} />
+                    <p className="mb-1 fs-14" style={{ color: "rgba(255,255,255,0.6)" }}>{title}</p>
+                    <h5 className="mb-0 fw-700">{value}</h5>
                   </div>
                 </div>
               ))}
@@ -373,44 +453,30 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── 6. Nearby Places ── */}
         <section>
-          <div className="container relative z-2">
-            <div className="row g-4 gx-5 justify-content-center">
+          <div className="container">
+            <div className="row justify-content-center mb-5">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3" data-aos="fade-up">
-                  Near by Places
-                </div>
-                <h2 data-aos="fade-up" data-aos-delay="100">
-                  Highlights Nearby
-                </h2>
+                <div className="subtitle s2 mb-3" data-aos="fade-up">Location Advantage</div>
+                <h2 data-aos="fade-up" data-aos-delay="80">Highlights Nearby</h2>
               </div>
             </div>
-
             <div className="row g-4">
               {[
-                ["LuLu Mall, Edappally", "2 km", "/assets/images/nearby/lulu-mall.jpg"],
-                ["Amrita Institute of Medical Sciences", "3 km", "/assets/images/nearby/aims-kochi.jpg"],
-                ["Amrita Vishwa Vidyapeetham", "3 km", "/assets/images/nearby/amrita-campus.jpg"],
-                ["Edappally Metro Station", "1 km", "/assets/images/nearby/edappally-metro.jpg"]
-              ].map(([label, distance, image]) => (
-                <div key={label} className="col-lg-3 col-md-6 col-sm-6 col-12">
-                  <div className="overflow-hidden rounded-1 text-light" style={{ height: "280px", position: "relative" }}>
-                    <img
-                      src={image}
-                      alt={label}
-                      loading="lazy"
-                      decoding="async"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                    />
-                    <div style={{
-                      position: "absolute",
-                      inset: 0,
-                      background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 55%, transparent 100%)",
-                      zIndex: 1
-                    }} />
-                    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "16px", zIndex: 2 }}>
-                      <h5 className="mb-1 text-white lh-sm" style={{ wordBreak: "break-word" }}>{label}</h5>
-                      <span className="text-white fs-14 fw-500 opacity-75">{distance}</span>
+                ["LuLu Mall, Edappally",                "2 km",  "/assets/images/nearby/lulu-mall.jpg"],
+                ["Amrita Institute of Medical Sciences", "3 km",  "/assets/images/nearby/aims-kochi.jpg"],
+                ["Amrita Vishwa Vidyapeetham",           "3 km",  "/assets/images/nearby/amrita-campus.jpg"],
+                ["Edappally Metro Station",              "1 km",  "/assets/images/nearby/edappally-metro.jpg"],
+              ].map(([label, distance, image], i) => (
+                <div key={label} className="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay={`${i * 80}`}>
+                  <div className="nrp-nearby-card overflow-hidden rounded-3" style={{ height: "290px", position: "relative", boxShadow: "0 12px 36px rgba(32,24,40,0.14)" }}>
+                    <img src={image} alt={label} loading="lazy" decoding="async"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.1) 55%, transparent 100%)" }} />
+                    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "20px 16px" }}>
+                      <span className="d-inline-block mb-2 px-2 py-1 rounded-1 fw-700" style={{ background: "var(--primary-color)", fontSize: "0.72rem", color: "#fff", letterSpacing: "0.04em" }}>{distance}</span>
+                      <h5 className="mb-0 text-white lh-sm" style={{ fontSize: "0.98rem" }}>{label}</h5>
                     </div>
                   </div>
                 </div>
@@ -419,92 +485,120 @@ export default function HomePage() {
           </div>
         </section>
 
-   
-        <section id="section-contact">
+        {/* ── 7. Testimonials ── */}
+        <section id="section-testimonials" className="bg-dark section-dark text-light">
           <div className="container">
-            <div className="row g-4 justify-content-center">
+            <div className="row justify-content-center mb-5">
               <div className="col-lg-6 text-center">
-                <div className="subtitle s2 mb-3" data-aos="fade-up">
-                  Contact Us
+                <div className="subtitle s2 mb-3" data-aos="fade-up">Happy Home Owners</div>
+                <h2 data-aos="fade-up" data-aos-delay="80">Words from Our Customers</h2>
+                <p className="mt-2" style={{ color: "rgba(255,255,255,0.55)" }} data-aos="fade-up" data-aos-delay="140">
+                  Real stories from real families who chose National Builders for their dream home.
+                </p>
+              </div>
+            </div>
+
+            <div className="row g-4" id="testimonials-grid">
+              {testimonialVideos.map((src, i) => (
+                <div key={src} className={`col-lg-4 col-md-6${i >= 3 ? " nrp-testi-extra" : ""}`}
+                  data-aos="fade-up" data-aos-delay={`${(i % 3) * 100}`}
+                  style={i >= 3 ? { display: "none" } : {}}>
+                  <div className="nrp-dark-card rounded-3 overflow-hidden" style={{ background: "#000" }}>
+                    <video
+                      src={src}
+                      controls
+                      preload="none"
+                      playsInline
+                      style={{ width: "100%", display: "block", maxHeight: "340px", objectFit: "cover", background: "#111" }}
+                    />
+                  </div>
                 </div>
-                <h2 data-aos="fade-up" data-aos-delay="100">
-                  Request a Callback
-                </h2>
+              ))}
+            </div>
+
+            <div className="text-center mt-5" id="load-more-wrap">
+              <button id="load-more-btn" className="btn-main fx-slide" style={{ background: "transparent", border: "2px solid rgba(255,255,255,0.2)", color: "#fff", cursor: "pointer" }}>
+                <span>Load More Reviews</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 8. Contact ── */}
+        <section id="section-contact" style={{ background: "#1C1428" }} className="text-light">
+          <div className="container">
+            <div className="row justify-content-center mb-5">
+              <div className="col-lg-6 text-center">
+                <div className="subtitle s2 mb-3" style={{ color: "var(--primary-color)" }}>Get in Touch</div>
+                <h2 className="text-white">Request a Callback</h2>
+                <p style={{ color: "rgba(255,255,255,0.55)" }}>Our team will reach out to you within 24 hours.</p>
               </div>
             </div>
 
             <div className="row g-4 justify-content-center">
-              <div className="col-md-3">
-                <div className="text-center">
-                  <img src="/images/agents/1.webp" className="w-100 rounded-1" alt="National Builders" loading="lazy" decoding="async" />
-
-                  <div className="mt-3">
-                    <h4 className="mb-0">National Builders</h4>
-                    <a href="tel:+919847533355" className="d-block fw-500 id-color text-decoration-none">
-                      <i className="fa-solid fa-phone me-1" />+91 98475 33355
-                    </a>
-                    <a href="tel:+919847544222" className="d-block fw-500 id-color text-decoration-none">
-                      <i className="fa-solid fa-phone me-1" />+91 98475 44222
-                    </a>
-                    <a href="tel:+919847717771" className="d-block fw-500 id-color text-decoration-none">
-                      <i className="fa-solid fa-phone me-1" />+91 98477 17771
-                    </a>
-                    <div className="fw-500 id-color mt-1" style={{ fontSize: "0.8rem", wordBreak: "break-all" }}>marketingkochi@nationalbuilders.in</div>
+              {/* Agent card */}
+              <div className="col-md-4 col-lg-3">
+                <div className="nrp-contact-info text-center p-4 rounded-3 h-100"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <img src="/images/agents/1.webp" className="rounded-2 mb-3" alt="National Builders" loading="lazy" decoding="async"
+                    style={{ width: "100%", maxWidth: "180px", height: "180px", objectFit: "cover" }} />
+                  <h5 className="mb-3 text-white">National Builders</h5>
+                  <div className="d-flex flex-column gap-2 mb-3">
+                    {[
+                      ["+91 98475 33355", "tel:+919847533355"],
+                      ["+91 98475 44222", "tel:+919847544222"],
+                      ["+91 98477 17771", "tel:+919847717771"],
+                    ].map(([num, href]) => (
+                      <a key={num} href={href} className="d-flex align-items-center justify-content-center gap-2 fw-600 text-decoration-none"
+                        style={{ color: "var(--primary-color)", fontSize: "0.9rem" }}>
+                        <i className="fa-solid fa-phone" style={{ fontSize: "0.78rem" }} />{num}
+                      </a>
+                    ))}
                   </div>
+                  <a href="https://wa.me/919847533355" target="_blank" rel="noopener noreferrer"
+                    className="btn-main d-flex align-items-center justify-content-center gap-2 text-decoration-none"
+                    style={{ background: "#25d366", borderColor: "#25d366" }}>
+                    <i className="fa-brands fa-whatsapp" style={{ fontSize: "1.1rem" }} />
+                    <span>WhatsApp Us</span>
+                  </a>
                 </div>
               </div>
 
-              <div className="col-md-5">
-                <form name="callbackForm" id="callback_form" method="post" action="#">
-                  <div className="row g-4">
-                    <div className="col-md-6">
-                      <input type="text" name="name" id="name" className="form-control" placeholder="Your Name" required />
-                    </div>
-
-                    <div className="col-md-6">
-                      <input type="tel" name="phone" id="phone" className="form-control" placeholder="Phone Number" required />
-                    </div>
-
-                    <div className="col-md-6">
-                      <input type="email" name="email" id="email" className="form-control" placeholder="Your Email" />
-                    </div>
-
-                    <div className="col-md-6">
-                      <div className="relative">
-                        <select name="best_time" id="best_time" className="form-control" defaultValue="">
-                          <option value="" disabled>Best Time to Call</option>
-                          <option value="morning">Morning (9 AM – 12 PM)</option>
-                          <option value="afternoon">Afternoon (12 PM – 3 PM)</option>
-                          <option value="evening">Evening (3 PM – 6 PM)</option>
-                          <option value="anytime">Anytime</option>
-                        </select>
-                        <i className="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down" />
+              {/* Form */}
+              <div className="col-md-7 col-lg-5">
+                <div className="nrp-contact-form p-4 p-lg-5 rounded-3"
+                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <h5 className="text-white mb-1">Fill in Your Details</h5>
+                  <p className="mb-4" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.88rem" }}>We'll call you back — no spam, ever.</p>
+                  <form name="callbackForm" id="callback_form" method="post" action="#">
+                    <div className="row g-3">
+                      <div className="col-12">
+                        <input type="text" name="name" id="name" className="form-control" placeholder="Your Name *" required />
                       </div>
-                    </div>
-
-                    <div className="col-md-12">
-                      <textarea
-                        name="message"
-                        id="message"
-                        className="form-control h-150px"
-                        placeholder="Your Message (optional)"
-                      ></textarea>
-                    </div>
-
-                    <div className="col-md-12">
-                      <div className="text-start">
+                      <div className="col-12">
+                        <input type="tel" name="phone" id="phone" className="form-control" placeholder="Phone Number *" required />
+                      </div>
+                      <div className="col-12">
+                        <select name="bhk" id="bhk" className="form-control" defaultValue="">
+                          <option value="" disabled>Preferred BHK</option>
+                          <option value="3bhk">3 BHK</option>
+                          <option value="4bhk">4 BHK</option>
+                          <option value="any">Any</option>
+                        </select>
+                      </div>
+                      <div className="col-12">
                         <div id="submit">
-                          <input type="submit" id="send_message" value="Send Message" className="btn-main" />
+                          <input type="submit" id="send_message" value="Send Message" className="btn-main w-100" />
                         </div>
                       </div>
                     </div>
-                  </div>
-                </form>
-                <div id="success_message_col" className="success">
-                  Your message has been sent successfully. Refresh this page if you want to send more messages.
-                </div>
-                <div id="error_message" className="error">
-                  Sorry there was an error sending your form.
+                  </form>
+                  <div id="success_message_col" className="success mt-3">Your message has been sent successfully.</div>
+                  <div id="error_message" className="error mt-3">Sorry there was an error sending your form.</div>
+                  <p className="text-center mt-4 mb-0 d-flex align-items-center justify-content-center gap-2"
+                    style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.38)" }}>
+                    <i className="fa-solid fa-lock" /> 100% Confidential — We never share your details.
+                  </p>
                 </div>
               </div>
             </div>
@@ -512,22 +606,22 @@ export default function HomePage() {
         </section>
       </div>
 
+      {/* ── Footer ── */}
       <footer className="section-dark" style={{ background: "#1C1428", color: "rgba(255,255,255,0.85)" }}>
         <div className="container">
           <div className="row g-4 g-lg-5">
-
-            {/* Brand + About + Social */}
             <div className="col-12 col-md-6 col-lg-4">
-              <img
-                src="/assets/images/national-royal-palace-logo.png"
-                className="mb-4"
-                alt="National Royal Palace"
-                style={{ maxWidth: "160px", width: "100%", height: "auto" }}
-              />
-              <p className="fs-15 opacity-75">
-                National Builders is a leading real estate developer with 135+ landmark projects across Navi Mumbai and Kerala, committed to quality and excellence.
+              <img src="/assets/images/national-royal-palace-logo.png" className="mb-4"
+                alt="National Royal Palace" style={{ maxWidth: "160px", width: "100%", height: "auto" }} />
+              <p className="fs-15 mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>
+                National Builders — a leading real estate developer with 135+ landmark projects across Navi Mumbai and Kerala, committed to quality and excellence since 1990.
               </p>
-              <div className="social-icons mt-3">
+              <a href="https://wa.me/919847533355" target="_blank" rel="noopener noreferrer"
+                className="d-inline-flex align-items-center gap-2 btn-main mb-3 text-decoration-none"
+                style={{ background: "#25d366", borderColor: "#25d366", fontSize: "0.85rem" }}>
+                <i className="fa-brands fa-whatsapp" /> WhatsApp Us
+              </a>
+              <div className="social-icons d-block mt-1">
                 <a href="#"><i className="fa-brands fa-instagram" /></a>
                 <a href="#"><i className="fa-brands fa-facebook-f" /></a>
                 <a href="#"><i className="fa-brands fa-whatsapp" /></a>
@@ -537,56 +631,60 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Quick Links */}
             <div className="col-6 col-md-3 col-lg-2">
               <h5 className="mb-3 mb-lg-4">Quick Links</h5>
               <ul className="list-unstyled mb-0" style={{ lineHeight: "2.4" }}>
-                <li><a href="#" className="text-white opacity-75 text-decoration-none">Home</a></li>
-                <li><a href="#section-overview" className="text-white opacity-75 text-decoration-none">Overview</a></li>
-                <li><a href="#section-amenities" className="text-white opacity-75 text-decoration-none">Amenities</a></li>
-                <li><a href="#section-gallery" className="text-white opacity-75 text-decoration-none">Gallery</a></li>
-                <li><a href="#section-floorplan" className="text-white opacity-75 text-decoration-none">Floorplan</a></li>
-                <li><a href="#section-contact" className="text-white opacity-75 text-decoration-none">Contact</a></li>
+                {[
+                  ["#",                   "Home"],
+                  ["#section-about",      "About Us"],
+                  ["#section-amenities",  "Amenities"],
+                  ["#section-gallery",    "Gallery"],
+                  ["#section-floorplan",  "Floorplan"],
+                  ["#section-testimonials","Reviews"],
+                  ["#section-contact",    "Contact"],
+                  ["#",                   "Privacy Policy"],
+                ].map(([href, label]) => (
+                  <li key={label}><a href={href} className="text-white opacity-75 text-decoration-none">{label}</a></li>
+                ))}
               </ul>
             </div>
 
-            {/* Kochi Office */}
             <div className="col-12 col-md-6 col-lg-3">
               <h5 className="mb-3 mb-lg-4">Kochi Office</h5>
-              <p className="fs-15 opacity-75 mb-3">
+              <p className="fs-15 mb-3" style={{ color: "rgba(255,255,255,0.6)" }}>
                 National Pearl Star, 5th Floor,<br />
                 High School Junction, Edappally,<br />
                 Kochi, Kerala – 682024
               </p>
-              <p className="fs-15 mb-1">
-                <i className="fa-solid fa-phone me-2 id-color" />
-                <a href="tel:+919847533355" className="text-white opacity-75 text-decoration-none">+91 98475 33355</a>
-              </p>
-              <p className="fs-15 mb-1">
-                <i className="fa-solid fa-phone me-2 id-color" />
-                <a href="tel:+919847544222" className="text-white opacity-75 text-decoration-none">+91 98475 44222</a>
-              </p>
-              <p className="fs-15 mb-1">
-                <i className="fa-solid fa-phone me-2 id-color" />
-                <a href="tel:+919847717771" className="text-white opacity-75 text-decoration-none">+91 98477 17771</a>
-              </p>
-              <p className="fs-15 mt-2 mb-0">
-                <i className="fa-solid fa-envelope me-2 id-color" />
-                <a href="mailto:marketingkochi@nationalbuilders.in" className="text-white opacity-75 text-decoration-none" style={{ wordBreak: "break-all" }}>marketingkochi@nationalbuilders.in</a>
-              </p>
+              <div className="d-flex flex-column gap-1">
+                {[
+                  ["+91 98475 33355", "tel:+919847533355"],
+                  ["+91 98475 44222", "tel:+919847544222"],
+                  ["+91 98477 17771", "tel:+919847717771"],
+                ].map(([num, href]) => (
+                  <p key={num} className="fs-15 mb-0">
+                    <i className="fa-solid fa-phone me-2 id-color" />
+                    <a href={href} className="text-white opacity-75 text-decoration-none">{num}</a>
+                  </p>
+                ))}
+                <p className="fs-15 mt-2 mb-0">
+                  <i className="fa-solid fa-envelope me-2 id-color" />
+                  <a href="mailto:marketingkochi@nationalbuilders.in" className="text-white opacity-75 text-decoration-none" style={{ wordBreak: "break-all" }}>
+                    marketingkochi@nationalbuilders.in
+                  </a>
+                </p>
+              </div>
             </div>
 
-            {/* Navi Mumbai Office */}
             <div className="col-12 col-md-6 col-lg-3">
               <h5 className="mb-3 mb-lg-4">Navi Mumbai Office</h5>
-              <p className="fs-15 opacity-75 mb-0">
+              <p className="fs-15 mb-0" style={{ color: "rgba(255,255,255,0.6)" }}>
                 Sea Queen Heritage Building,<br />
                 1st Floor, Plot 6, Sector 18,<br />
                 Palm Beach Service Road, Sanpada,<br />
                 Navi Mumbai – 400705
               </p>
             </div>
-
           </div>
         </div>
 
@@ -604,23 +702,29 @@ export default function HomePage() {
         </div>
       </footer>
 
+      {/* ── Mobile sticky CTA bar ── */}
+      <div className="nrp-mobile-cta">
+        <a href="tel:+919847533355" className="nrp-mobile-cta-link nrp-mobile-cta-secondary text-decoration-none">
+          <i className="fa-solid fa-phone" /><span style={{ fontSize: "0.88rem", fontWeight: 700, color: "#fff" }}>Call Now</span>
+        </a>
+        <a href="https://wa.me/919847533355" target="_blank" rel="noopener noreferrer"
+          className="nrp-mobile-cta-link text-decoration-none" style={{ background: "#25d366" }}>
+          <i className="fa-brands fa-whatsapp" /><span style={{ fontSize: "0.88rem", fontWeight: 700 }}>WhatsApp</span>
+        </a>
+        <a href="#section-contact" className="nrp-mobile-cta-link text-decoration-none" data-callback-modal>
+          <i className="fa-solid fa-phone-volume" /><span style={{ fontSize: "0.88rem", fontWeight: 700 }}>Callback</span>
+        </a>
+      </div>
+
+      <CallbackModal />
       <Script src="/assets/js/vendors.js" strategy="afterInteractive" />
       <Script src="/assets/js/designesia.js" strategy="afterInteractive" />
       <Script src="/assets/js/validation-booking.js" strategy="afterInteractive" />
       <Script src="/assets/js/swiper.js" strategy="afterInteractive" />
       <Script src="/assets/js/custom-swiper-2.js" strategy="afterInteractive" />
-      <Script id="datepicker-init" strategy="afterInteractive">
-        {`window.jQuery?.(function () {
-          window.jQuery("#date").datepicker({
-            autoclose: true,
-            todayHighlight: true
-          }).datepicker("update", new Date());
-        });`}
-      </Script>
-      <Script id="template-load-fix" strategy="afterInteractive">
-        {`window.setTimeout(function () {
+      <Script id="template-load-fix" strategy="afterInteractive">{`
+        window.setTimeout(function () {
           try { window.dispatchEvent(new Event("load")); } catch(e) {}
-          // Force footer and lower sections always visible
           var f = document.querySelector("footer");
           if (f) {
             f.style.setProperty("background", "#1C1428", "important");
@@ -635,8 +739,8 @@ export default function HomePage() {
           }
           document.body.style.setProperty("overflow-y", "auto", "important");
           document.body.style.setProperty("overflow-x", "hidden", "important");
-        }, 150);`}
-      </Script>
+        }, 150);
+      `}</Script>
       <Script id="floorplan-swiper-init" strategy="afterInteractive">{`
         (function() {
           function initFpSwiper() {
@@ -645,11 +749,22 @@ export default function HomePage() {
               slidesPerView: 1,
               loop: true,
               speed: 600,
-              navigation: { nextEl: ".swiper-fp .swiper-button-next", prevEl: ".swiper-fp .swiper-button-prev" },
+              navigation: { nextEl: "#fp-next", prevEl: "#fp-prev" },
               pagination: { el: ".swiper-fp .swiper-pagination", clickable: true }
             });
           }
           initFpSwiper();
+        })();
+      `}</Script>
+      <Script id="load-more-init" strategy="afterInteractive">{`
+        (function() {
+          var btn = document.getElementById("load-more-btn");
+          if (!btn) return;
+          btn.addEventListener("click", function() {
+            var extras = document.querySelectorAll(".nrp-testi-extra");
+            extras.forEach(function(el) { el.style.display = ""; });
+            document.getElementById("load-more-wrap").style.display = "none";
+          });
         })();
       `}</Script>
       <Script id="aos-init" strategy="afterInteractive">{`
@@ -661,7 +776,7 @@ export default function HomePage() {
           var script = document.createElement("script");
           script.src = "https://unpkg.com/aos@2.3.4/dist/aos.js";
           script.onload = function() {
-            AOS.init({ duration: 700, once: true, offset: 60, easing: "ease-out-cubic" });
+            AOS.init({ duration: 750, once: true, offset: 50, easing: "ease-out-cubic" });
           };
           document.body.appendChild(script);
         })();

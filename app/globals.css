@@ -19,3 +19,315 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --nrp-deep: #1c1428;
+  --nrp-surface: #241a34;
+  --nrp-cream: #f6efe7;
+  --nrp-muted: rgba(255, 255, 255, 0.68);
+  --nrp-shadow: 0 24px 60px rgba(11, 8, 18, 0.18);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(180, 136, 74, 0.08), transparent 24%),
+    radial-gradient(circle at top right, rgba(93, 66, 143, 0.09), transparent 26%),
+    linear-gradient(180deg, #fffdf9 0%, #f7f2ea 100%);
+  color: #201828;
+}
+
+.nrp-page section {
+  position: relative;
+  padding: clamp(72px, 9vw, 110px) 0;
+}
+
+.nrp-page .btn-main {
+  border-radius: 999px;
+  box-shadow: 0 16px 30px rgba(181, 137, 76, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.nrp-page .btn-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 36px rgba(181, 137, 76, 0.24);
+}
+
+.nrp-hero-section {
+  overflow: hidden;
+}
+
+.nrp-hero-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.nrp-hero-orb-1 {
+  top: 14%;
+  left: -80px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(197, 147, 80, 0.26) 0%, rgba(197, 147, 80, 0) 70%);
+}
+
+.nrp-hero-orb-2 {
+  right: -100px;
+  bottom: 6%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(111, 86, 170, 0.22) 0%, rgba(111, 86, 170, 0) 72%);
+}
+
+.nrp-pill {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.nrp-hero-chip {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(10px);
+}
+
+.nrp-trust-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.nrp-hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: auto 18px -20px 18px;
+  height: 46px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  filter: blur(28px);
+  z-index: 0;
+}
+
+.nrp-hero-visual > * {
+  position: relative;
+  z-index: 1;
+}
+
+.nrp-glass-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  padding: 12px 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
+}
+
+.nrp-floating-metric {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: rgba(28, 20, 40, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 24px 42px rgba(0, 0, 0, 0.24);
+}
+
+.nrp-floating-metric strong {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.nrp-floating-metric span {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.nrp-stat-card,
+.nrp-soft-card,
+.nrp-dark-card,
+.nrp-contact-info,
+.nrp-contact-form,
+.nrp-floorplan-panel,
+.nrp-floorplan-carousel,
+.nrp-nearby-card {
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background-color 0.28s ease;
+}
+
+.nrp-stat-card {
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(104, 78, 128, 0.08);
+  border-bottom: 3px solid var(--primary-color);
+  box-shadow: var(--nrp-shadow);
+}
+
+.nrp-stat-card:hover,
+.nrp-soft-card:hover,
+.nrp-dark-card:hover,
+.nrp-nearby-card:hover {
+  transform: translateY(-6px);
+}
+
+.nrp-soft-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 244, 236, 0.86) 100%);
+  border: 1px solid rgba(104, 78, 128, 0.08);
+  box-shadow: 0 18px 34px rgba(32, 24, 40, 0.08);
+}
+
+.nrp-dark-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.nrp-dark-card:hover {
+  border-color: rgba(201, 167, 92, 0.34);
+  box-shadow: 0 22px 34px rgba(0, 0, 0, 0.2);
+}
+
+.nrp-icon-box {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #b98045 100%);
+  box-shadow: 0 16px 26px rgba(185, 128, 69, 0.25);
+}
+
+.nrp-gallery-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.1) 100%);
+  pointer-events: none;
+}
+
+.nrp-gallery-caption {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 4;
+  color: white;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.nrp-floorplan-panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%);
+}
+
+.nrp-floorplan-carousel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nrp-nearby-card:hover img {
+  transform: scale(1.06);
+}
+
+.nrp-nearby-card img {
+  transition: transform 0.5s ease;
+}
+
+.nrp-contact-info,
+.nrp-contact-form {
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+}
+
+.nrp-contact-form .form-control {
+  min-height: 54px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  padding-inline: 16px;
+}
+
+.nrp-contact-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nrp-contact-form .form-control:focus {
+  border-color: rgba(201, 167, 92, 0.55);
+  box-shadow: 0 0 0 4px rgba(201, 167, 92, 0.14);
+}
+
+.nrp-mobile-cta {
+  position: fixed;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 60;
+  display: none;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  background: rgba(28, 20, 40, 0.92);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+}
+
+.nrp-mobile-cta-link {
+  flex: 1;
+  min-height: 48px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #b98045 100%);
+  color: white;
+  font-weight: 700;
+}
+
+.nrp-mobile-cta-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 991.98px) {
+  .nrp-page section {
+    padding: 64px 0;
+  }
+
+  .nrp-glass-card,
+  .nrp-floating-metric {
+    position: static !important;
+    margin-top: 16px;
+    display: inline-flex;
+  }
+
+  .nrp-hero-visual::after {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nrp-page section {
+    padding: 54px 0;
+  }
+
+  .nrp-hero-chip {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .nrp-mobile-cta {
+    display: flex;
+  }
+
+  body {
+    padding-bottom: 92px;
+  }
+}

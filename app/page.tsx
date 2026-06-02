@@ -128,32 +128,32 @@ export default function HomePage() {
                   Spacious homes in a prime location with world-class amenities at Pathadipalam, Edappally — where luxury meets lifestyle.
                 </p>
 
-                <div className="d-flex flex-wrap gap-2 mb-5">
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "2rem" }}>
                   {[
                     ["fa-solid fa-map-pin",              "Pathadipalam, Edappally"],
                     ["fa-solid fa-building",             "G + 14 Floors"],
                     ["fa-solid fa-indian-rupee-sign",    "From ₹1.75 Cr"],
                   ].map(([icon, text]) => (
-                    <div key={text} className="d-flex align-items-center gap-2 nrp-hero-chip">
-                      <i className={`${icon} id-color`} style={{ fontSize: "0.85rem" }} />
+                    <div key={text} className="nrp-hero-chip" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <i className={`${icon} id-color`} style={{ fontSize: "0.85rem", flexShrink: 0 }} />
                       <span>{text}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="d-flex flex-wrap gap-3 mb-5">
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "2rem" }}>
                   <a className="btn-main fx-slide" href="#section-contact" data-callback-modal><span>Request a Callback</span></a>
                   <a className="btn-main btn-line fx-slide" href="#section-about"><span>Explore Property</span></a>
                 </div>
 
-                <div className="d-flex flex-wrap gap-4 nrp-trust-row">
+                <div className="nrp-trust-row" style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
                   {[
                     ["fa-solid fa-star",         "4.8 Rating"],
                     ["fa-solid fa-shield-halved", "RERA Approved"],
-                    ["fa-solid fa-users",         "500+ Families"],
+                    ["fa-solid fa-users",         "10000+ Families"],
                   ].map(([icon, text]) => (
-                    <span key={text} className="d-flex align-items-center gap-2" style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.88rem" }}>
-                      <i className={`${icon} id-color`} />
+                    <span key={text} style={{ display: "flex", alignItems: "center", gap: "8px", color: "rgba(255,255,255,0.65)", fontSize: "0.88rem" }}>
+                      <i className={`${icon} id-color`} style={{ flexShrink: 0 }} />
                       {text}
                     </span>
                   ))}
@@ -194,14 +194,14 @@ export default function HomePage() {
             {/* Stats */}
             <div className="row g-3 mb-5">
               {[
-                ["35+",     "Years of Excellence"],
+                ["40+",     "Years of Excellence"],
+                ["1986",    "Since"],
                 ["135+",    "Landmark Projects"],
                 ["10,000+", "Happy Families"],
-                ["G+14",    "Floors of Luxury"],
               ].map(([stat, label], i) => (
                 <div key={label} className="col-6 col-md-3" data-aos="fade-up" data-aos-delay={`${i * 80}`}>
                   <div className="nrp-stat-card rounded-3 p-4 text-center h-100">
-                    <h2 className="id-color mb-1" style={{ fontSize: "2.2rem", fontWeight: 800 }}>{stat}</h2>
+                    <h2 className="id-color mb-1" style={{ fontSize: "1.8rem", fontWeight: 800 }}>{stat}</h2>
                     <p className="mb-0 fs-14 opacity-75">{label}</p>
                   </div>
                 </div>
@@ -215,19 +215,19 @@ export default function HomePage() {
                 <p style={{ color: "rgba(32,24,40,0.72)", lineHeight: 1.8 }} className="mb-4">
                   National Builders is a leading real estate developer with 135+ landmark projects across Navi Mumbai and Kerala. Our commitment to quality construction, timely delivery, and customer satisfaction has made us a trusted name in premium real estate.
                 </p>
-                <div className="d-flex flex-column gap-3 mb-4">
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "1.5rem" }}>
                   {[
                     ["fa-solid fa-clock",     "On-Time Delivery",            "We honour every deadline — your dream home, delivered as promised."],
                     ["fa-solid fa-medal",     "Premium Construction Quality", "Superior materials and meticulous craftsmanship in every detail."],
                     ["fa-solid fa-handshake", "Customer-First Approach",      "Transparent dealings and after-sales support you can count on."],
                   ].map(([icon, title, desc]) => (
-                    <div key={title} className="d-flex gap-3 align-items-start">
-                      <div className="nrp-icon-box flex-shrink-0 rounded-2 d-flex align-items-center justify-content-center" style={{ width: 48, height: 48, color: "#fff", fontSize: "1rem" }}>
+                    <div key={title} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                      <div className="nrp-icon-box rounded-2" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 48, height: 48, flexShrink: 0, color: "#fff", fontSize: "1rem" }}>
                         <i className={icon} />
                       </div>
-                      <div>
+                      <div style={{ minWidth: 0 }}>
                         <h6 className="mb-1 fw-600">{title}</h6>
-                        <p className="mb-0 fs-14" style={{ color: "rgba(32,24,40,0.65)" }}>{desc}</p>
+                        <p className="mb-0 fs-14 " style={{ color: "rgba(32,24,40,0.65)" }}>{desc}</p>
                       </div>
                     </div>
                   ))}
@@ -270,11 +270,11 @@ export default function HomePage() {
             <div className="row g-4">
               {amenities.map((a, i) => (
                 <div key={a.label} className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay={`${(i % 3) * 80}`}>
-                  <div className="nrp-dark-card rounded-3 p-4 h-100 d-flex gap-3 align-items-start">
-                    <div className="nrp-icon-box flex-shrink-0 rounded-2 d-flex align-items-center justify-content-center" style={{ width: 52, height: 52, color: "#fff", fontSize: "1.25rem" }}>
+                  <div className="nrp-dark-card rounded-3 p-4 h-100" style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                    <div className="nrp-icon-box rounded-2" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 52, height: 52, flexShrink: 0, color: "#fff", fontSize: "1.25rem" }}>
                       <i className={a.icon} />
                     </div>
-                    <div>
+                    <div style={{ minWidth: 0 }}>
                       <h5 className="mb-1 fw-600" style={{ fontSize: "1rem" }}>{a.label}</h5>
                       <p className="mb-0 fs-14" style={{ color: "rgba(255,255,255,0.6)" }}>{a.benefit}</p>
                     </div>
@@ -380,10 +380,9 @@ export default function HomePage() {
                   </p>
                   <div className="rounded-3 overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.1)" }}>
                     {floorplanRows.map(([label, value], index) => (
-                      <div key={label} className="d-flex align-items-center px-4 py-3"
-                        style={{ background: index % 2 === 0 ? "rgba(255,255,255,0.05)" : "transparent", borderBottom: index < floorplanRows.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
-                        <div className="fs-14" style={{ flex: "0 0 55%", color: "rgba(255,255,255,0.6)" }}>{label}</div>
-                        <div className="fw-700 fs-14 id-color" style={{ flex: "0 0 45%" }}>{value}</div>
+                      <div key={label} style={{ display: "flex", alignItems: "flex-start", padding: "12px 16px", background: index % 2 === 0 ? "rgba(255,255,255,0.05)" : "transparent", borderBottom: index < floorplanRows.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none", gap: "8px" }}>
+                        <div style={{ flex: "0 0 44%", fontSize: "0.82rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>{label}</div>
+                        <div style={{ flex: "1 1 0", minWidth: 0, fontSize: "0.82rem", fontWeight: 700, color: "var(--primary-color,#c9a75c)", wordBreak: "break-all", overflowWrap: "anywhere", lineHeight: 1.5 }}>{value}</div>
                       </div>
                     ))}
                   </div>
@@ -543,15 +542,15 @@ export default function HomePage() {
                   <img src="/images/agents/1.webp" className="rounded-2 mb-3" alt="National Builders" loading="lazy" decoding="async"
                     style={{ width: "100%", maxWidth: "180px", height: "180px", objectFit: "cover" }} />
                   <h5 className="mb-3 text-white">National Builders</h5>
-                  <div className="d-flex flex-column gap-2 mb-3">
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "12px" }}>
                     {[
                       ["+91 98475 33355", "tel:+919847533355"],
                       ["+91 98475 44222", "tel:+919847544222"],
                       ["+91 98477 17771", "tel:+919847717771"],
                     ].map(([num, href]) => (
-                      <a key={num} href={href} className="d-flex align-items-center justify-content-center gap-2 fw-600 text-decoration-none"
-                        style={{ color: "var(--primary-color)", fontSize: "0.9rem" }}>
-                        <i className="fa-solid fa-phone" style={{ fontSize: "0.78rem" }} />{num}
+                      <a key={num} href={href} className="fw-600 text-decoration-none"
+                        style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", color: "var(--primary-color)", fontSize: "0.9rem" }}>
+                        <i className="fa-solid fa-phone" style={{ fontSize: "0.78rem", flexShrink: 0 }} />{num}
                       </a>
                     ))}
                   </div>
@@ -595,9 +594,9 @@ export default function HomePage() {
                   </form>
                   <div id="success_message_col" className="success mt-3">Your message has been sent successfully.</div>
                   <div id="error_message" className="error mt-3">Sorry there was an error sending your form.</div>
-                  <p className="text-center mt-4 mb-0 d-flex align-items-center justify-content-center gap-2"
-                    style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.38)" }}>
-                    <i className="fa-solid fa-lock" /> 100% Confidential — We never share your details.
+                  <p className="text-center mt-4 mb-0"
+                    style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", fontSize: "0.8rem", color: "rgba(255,255,255,0.38)" }}>
+                    <i className="fa-solid fa-lock" style={{ flexShrink: 0 }} /> 100% Confidential — We never share your details.
                   </p>
                 </div>
               </div>
@@ -656,7 +655,7 @@ export default function HomePage() {
                 High School Junction, Edappally,<br />
                 Kochi, Kerala – 682024
               </p>
-              <div className="d-flex flex-column gap-1">
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                 {[
                   ["+91 98475 33355", "tel:+919847533355"],
                   ["+91 98475 44222", "tel:+919847544222"],

@@ -8,12 +8,25 @@
   visibility: visible !important;
 }
 
-/* ─── body overflow fix ───────────────────────────────────────────────────────
-   style.css sets body { overflow: hidden } for a custom-scroll pattern that
-   doesn't apply in our Next.js setup. This clips footer and lower sections.
+/* ─── style.css sets white-space:nowrap on ALL .d-flex (for marquee) ─────────
+   This breaks text wrapping inside every flex container on the page.
 ──────────────────────────────────────────────────────────────────────────── */
+.d-flex {
+  white-space: normal !important;
+}
+
+/* ─── body overflow fix ───────────────────────────────────────────────────────
+   style.css sets body { overflow: hidden } which clips footer and lower sections.
+   Allow vertical scroll but block horizontal scroll.
+──────────────────────────────────────────────────────────────────────────── */
+html,
 body {
-  overflow: visible !important;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+body {
+  overflow-y: auto !important;
 }
 
 /* ─── Footer always dark ─────────────────────────────────────────────────────
@@ -34,8 +47,8 @@ footer li {
 
 /* ─── Global Section Spacing ─── */
 section {
-  padding-left: 15px;
-  padding-right: 15px;
+  box-sizing: border-box;
+  max-width: 100vw;
 }
 
 @media (max-width: 767px) {
@@ -48,6 +61,11 @@ section {
   h2, .h2 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
   h3, .h3 { font-size: clamp(1.1rem, 4vw, 1.4rem); }
   p        { font-size: clamp(0.875rem, 3.5vw, 1rem); }
+
+  /* Ensure text wraps on mobile */
+  p, h5, h6, li {
+    overflow-wrap: break-word;
+  }
 }
 
 /* ─── Navbar ─── */

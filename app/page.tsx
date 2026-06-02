@@ -211,7 +211,7 @@ export default function HomePage() {
             <div className="row g-5 align-items-center">
               <div className="col-lg-5" data-aos="fade-right">
                 <div className="subtitle mb-2">About Us</div>
-                <h2 className="mb-3">Building Dreams with Trust &amp; Quality Since 1990</h2>
+                <h2 className="mb-3">Building Dreams with Trust &amp; Quality Since 1986</h2>
                 <p style={{ color: "rgba(32,24,40,0.72)", lineHeight: 1.8 }} className="mb-4">
                   National Builders is a leading real estate developer with 135+ landmark projects across Navi Mumbai and Kerala. Our commitment to quality construction, timely delivery, and customer satisfaction has made us a trusted name in premium real estate.
                 </p>
@@ -613,7 +613,7 @@ export default function HomePage() {
               <img src="/assets/images/national-royal-palace-logo.png" className="mb-4"
                 alt="National Royal Palace" style={{ maxWidth: "160px", width: "100%", height: "auto" }} />
               <p className="fs-15 mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>
-                National Builders — a leading real estate developer with 135+ landmark projects across Navi Mumbai and Kerala, committed to quality and excellence since 1990.
+                National Builders — a leading real estate developer with 135+ landmark projects across Navi Mumbai and Kerala, committed to quality and excellence since 1986.
               </p>
               <a href="https://wa.me/919847533355" target="_blank" rel="noopener noreferrer"
                 className="d-inline-flex align-items-center gap-2 btn-main mb-3 text-decoration-none"

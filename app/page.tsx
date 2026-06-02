@@ -703,15 +703,15 @@ export default function HomePage() {
 
       {/* ── Mobile sticky CTA bar ── */}
       <div className="nrp-mobile-cta">
-        <a href="tel:+919847533355" className="nrp-mobile-cta-link nrp-mobile-cta-secondary text-decoration-none">
-          <i className="fa-solid fa-phone" /><span style={{ fontSize: "0.88rem", fontWeight: 700, color: "#fff" }}>Call Now</span>
+        <a href="tel:+919847533355" className="nrp-mobile-cta-link nrp-mobile-cta-secondary text-decoration-none" aria-label="Call Now">
+          <i className="fa-solid fa-phone" style={{ fontSize: "1.2rem" }} />
         </a>
         <a href="https://wa.me/919847533355" target="_blank" rel="noopener noreferrer"
-          className="nrp-mobile-cta-link text-decoration-none" style={{ background: "#25d366" }}>
-          <i className="fa-brands fa-whatsapp" /><span style={{ fontSize: "0.88rem", fontWeight: 700 }}>WhatsApp</span>
+          className="nrp-mobile-cta-link text-decoration-none" style={{ background: "#25d366" }} aria-label="WhatsApp">
+          <i className="fa-brands fa-whatsapp" style={{ fontSize: "1.3rem" }} />
         </a>
-        <a href="#section-contact" className="nrp-mobile-cta-link text-decoration-none" data-callback-modal>
-          <i className="fa-solid fa-phone-volume" /><span style={{ fontSize: "0.88rem", fontWeight: 700 }}>Callback</span>
+        <a href="#section-contact" className="nrp-mobile-cta-link text-decoration-none" data-callback-modal aria-label="Request Callback">
+          <i className="fa-solid fa-phone-volume" style={{ fontSize: "1.2rem" }} />
         </a>
       </div>
 

@@ -466,7 +466,7 @@ export default function HomePage() {
                 ["LuLu Mall, Edappally",                "2 km",  "/assets/images/nearby/lulu-mall.jpg"],
                 ["Amrita Institute of Medical Sciences", "3 km",  "/assets/images/nearby/aims-kochi.jpg"],
                 ["Amrita Vishwa Vidyapeetham",           "3 km",  "/assets/images/nearby/amrita-campus.jpg"],
-                ["Edappally Metro Station",              "1 km",  "/assets/images/nearby/edappally-metro.jpg"],
+                ["Pathadipalam Metro Station",           "1 km",  "/assets/images/nearby/edappally-metro.jpg"],
               ].map(([label, distance, image], i) => (
                 <div key={label} className="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay={`${i * 80}`}>
                   <div className="nrp-nearby-card overflow-hidden rounded-3" style={{ height: "290px", position: "relative", boxShadow: "0 12px 36px rgba(32,24,40,0.14)" }}>
@@ -539,8 +539,8 @@ export default function HomePage() {
               <div className="col-md-4 col-lg-3">
                 <div className="nrp-contact-info text-center p-4 rounded-3 h-100"
                   style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                  <img src="/images/agents/1.webp" className="rounded-2 mb-3" alt="National Builders" loading="lazy" decoding="async"
-                    style={{ width: "100%", maxWidth: "180px", height: "180px", objectFit: "cover" }} />
+                  <img src="/assets/images/national-builders-logo.png" className="mb-3" alt="National Builders" loading="lazy" decoding="async"
+                    style={{ width: "100%", maxWidth: "180px", height: "auto", objectFit: "contain" }} />
                   <h5 className="mb-3 text-white">National Builders</h5>
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "12px" }}>
                     {[

@@ -554,7 +554,7 @@ export default function HomePage() {
                       </a>
                     ))}
                   </div>
-                  <a href="https://wa.me/919847533355" target="_blank" rel="noopener noreferrer"
+                  <a href="https://wa.me/919847717771" target="_blank" rel="noopener noreferrer"
                     className="btn-main d-flex align-items-center justify-content-center gap-2 text-decoration-none"
                     style={{ background: "#25d366", borderColor: "#25d366" }}>
                     <i className="fa-brands fa-whatsapp" style={{ fontSize: "1.1rem" }} />
@@ -615,7 +615,7 @@ export default function HomePage() {
               <p className="fs-15 mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>
                 National Builders — a leading real estate developer with 135+ landmark projects across Navi Mumbai and Kerala, committed to quality and excellence since 1986.
               </p>
-              <a href="https://wa.me/919847533355" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/919847717771" target="_blank" rel="noopener noreferrer"
                 className="d-inline-flex align-items-center gap-2 btn-main mb-3 text-decoration-none"
                 style={{ background: "#25d366", borderColor: "#25d366", fontSize: "0.85rem" }}>
                 <i className="fa-brands fa-whatsapp" /> WhatsApp Us
@@ -703,10 +703,10 @@ export default function HomePage() {
 
       {/* ── Mobile sticky CTA bar ── */}
       <div className="nrp-mobile-cta">
-        <a href="tel:+919847533355" className="nrp-mobile-cta-link nrp-mobile-cta-secondary text-decoration-none" aria-label="Call Now">
+        <a href="tel:+919847717771" className="nrp-mobile-cta-link nrp-mobile-cta-secondary text-decoration-none" aria-label="Call Now">
           <i className="fa-solid fa-phone" style={{ fontSize: "1.2rem" }} />
         </a>
-        <a href="https://wa.me/919847533355" target="_blank" rel="noopener noreferrer"
+        <a href="https://wa.me/919847717771" target="_blank" rel="noopener noreferrer"
           className="nrp-mobile-cta-link text-decoration-none" style={{ background: "#25d366" }} aria-label="WhatsApp">
           <i className="fa-brands fa-whatsapp" style={{ fontSize: "1.3rem" }} />
         </a>

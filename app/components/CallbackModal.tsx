@@ -159,10 +159,10 @@ export default function CallbackModal() {
 
           {/* Quick contact */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "16px", display: "flex", gap: "10px" }}>
-            <a href="tel:+919847533355" style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", padding: "10px", borderRadius: "10px", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.8)", textDecoration: "none", fontSize: "0.82rem", fontWeight: 600 }}>
+            <a href="tel:+919847717771" style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", padding: "10px", borderRadius: "10px", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.8)", textDecoration: "none", fontSize: "0.82rem", fontWeight: 600 }}>
               📞 Call Now
             </a>
-            <a href="https://wa.me/919847533355" target="_blank" rel="noopener noreferrer" style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", padding: "10px", borderRadius: "10px", background: "#25d366", color: "#fff", textDecoration: "none", fontSize: "0.82rem", fontWeight: 600 }}>
+            <a href="https://wa.me/919847717771" target="_blank" rel="noopener noreferrer" style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", padding: "10px", borderRadius: "10px", background: "#25d366", color: "#fff", textDecoration: "none", fontSize: "0.82rem", fontWeight: 600 }}>
               💬 WhatsApp
             </a>
           </div>

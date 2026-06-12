@@ -578,12 +578,7 @@ export default function HomePage() {
                         <input type="tel" name="phone" id="phone" className="form-control" placeholder="Phone Number *" required />
                       </div>
                       <div className="col-12">
-                        <select name="bhk" id="bhk" className="form-control" defaultValue="">
-                          <option value="" disabled>Preferred BHK</option>
-                          <option value="3bhk">3 BHK</option>
-                          <option value="4bhk">4 BHK</option>
-                          <option value="any">Any</option>
-                        </select>
+                        <input type="email" name="email" id="email" className="form-control" placeholder="Email Address" autoComplete="email" />
                       </div>
                       <div className="col-12">
                         <div id="submit">

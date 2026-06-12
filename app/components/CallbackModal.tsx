@@ -34,7 +34,7 @@ export default function CallbackModal() {
     setLoading(true);
     setError("");
     const fd   = new FormData(e.currentTarget);
-    const body = { name: fd.get("name"), phone: fd.get("phone"), bhk: fd.get("bhk") };
+    const body = { name: fd.get("name"), phone: fd.get("phone"), email: fd.get("email") };
     try {
       const res = await fetch("/api/callback", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
       if (!res.ok) throw new Error("Failed");
@@ -134,12 +134,10 @@ export default function CallbackModal() {
             className="nrp-modal-input"
             type="tel" name="phone" placeholder="Phone Number *" required autoComplete="tel"
           />
-          <select className="nrp-modal-input" name="bhk" defaultValue="">
-            <option value="" disabled>Preferred BHK</option>
-            <option value="3 BHK">3 BHK</option>
-            <option value="4 BHK">4 BHK</option>
-            <option value="Any">Any</option>
-          </select>
+          <input
+            className="nrp-modal-input"
+            type="email" name="email" placeholder="Email Address" autoComplete="email"
+          />
 
           {error && (
             <p style={{ margin: 0, color: "#f87171", fontSize: "0.85rem", background: "rgba(248,113,113,0.1)", border: "1px solid rgba(248,113,113,0.2)", borderRadius: "8px", padding: "10px 14px" }}>

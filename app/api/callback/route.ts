@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
   const { error } = await resend.emails.send({
     from: "National Royal Palace <onboarding@resend.dev>",
-    to: ["marketingkochi@nationalbuilders.in"],
+    to: ["marketingkochi@nationalbuilders.in", "vyshnav@mantraitsolutions.in","athulyas@mantraitsolutions.in"],
     subject: `New Callback Request — ${name}`,
     html: `
       <div style="font-family:sans-serif;max-width:520px;margin:auto;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden">

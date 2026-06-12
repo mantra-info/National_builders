@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { error } = await resend.emails.send({
-    from: "National Royal Palace <onboarding@resend.dev>",
+    from: "National Royal Palace <noreply@nationalbuilders.in>",
     to: ["marketingkochi@nationalbuilders.in", "vyshnav@mantraitsolutions.in","athulyas@mantraitsolutions.in"],
     subject: `New Callback Request — ${name}`,
     html: `
@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
   });
 
   if (error) {
+    console.error("[Resend error]", error);
     return NextResponse.json({ error: "Failed to send email. Please try again." }, { status: 500 });
   }
 
